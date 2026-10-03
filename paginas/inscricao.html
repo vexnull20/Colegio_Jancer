@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Inscrição | Colégio Jancer</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     CABEÇALHO
+===================================================== -->
+
+<header>
+
+    <div class="logo">
+
+        <a href="../index.html"
+           aria-label="Página inicial do Colégio Jancer">
+
+            <img
+                class="logo-jancer"
+                src="../logo-jancer.png"
+                alt="Logo do Colégio Jancer"
+            >
+
+        </a>
+
+        <div class="logo-texto">
+
+            <span>COLÉGIO</span>
+
+            <strong>JANCER</strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         NAVEGAÇÃO
+    ================================================= -->
+
+    <nav>
+
+        <a href="../index.html">
+            Início
+        </a>
+
+        <a href="cursos.html">
+            Cursos
+        </a>
+
+        <a href="inscricao.html">
+            Inscrição
+        </a>
+
+        <a href="vagas.html">
+            Vagas
+        </a>
+
+        <a href="eventos.html">
+            Eventos
+        </a>
+
+        <a href="alunos.html">
+            Alunos
+        </a>
+
+        <a href="contactos.html">
+            Contactos
+        </a>
+
+    </nav>
+
+
+    <a href="inscricao.html"
+       class="botao-inscricao">
+
+        Fazer inscrição
+
+    </a>
+
+</header>
+
+
+<!-- =====================================================
+     CONTEÚDO PRINCIPAL
+===================================================== -->
+
+<main>
+
+    <!-- =================================================
+         INTRODUÇÃO
+    ================================================= -->
+
+    <section class="inscricao">
+
+        <div>
+
+            <h1>
+                Inscrição Online
+            </h1>
+
+            <p>
+                Preencha o formulário abaixo para
+                iniciar o processo de inscrição
+                no Colégio Jancer.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FORMULÁRIO
+    ================================================= -->
+
+    <section class="formulario">
+
+        <form id="formInscricao">
+
+
+            <!-- =================================================
+                 DADOS DO ALUNO
+            ================================================= -->
+
+            <h2>
+                Dados do aluno
+            </h2>
+
+
+            <label for="nomeAluno">
+                Nome completo do aluno
+            </label>
+
+            <input
+                type="text"
+                id="nomeAluno"
+                name="nomeAluno"
+                placeholder="Digite o nome completo do aluno"
+                autocomplete="name"
+                required
+            >
+
+
+            <label for="dataNascimento">
+                Data de nascimento
+            </label>
+
+            <input
+                type="date"
+                id="dataNascimento"
+                name="dataNascimento"
+                required
+            >
+
+
+            <label for="curso">
+                Curso pretendido
+            </label>
+
+            <select
+                id="curso"
+                name="curso"
+                required
+            >
+
+                <option value="">
+                    Selecione um curso
+                </option>
+
+                <option value="informatica">
+                    Informática
+                </option>
+
+                <option value="cfb">
+                    Ciências Físicas e Biológicas
+                </option>
+
+                <option value="cej">
+                    Ciências Económicas e Jurídicas
+                </option>
+
+
+            </select>
+
+
+            <!-- =================================================
+                 DADOS DO ENCARREGADO
+            ================================================= -->
+
+            <h2>
+                Dados do encarregado de educação
+            </h2>
+
+
+            <label for="nomeResponsavel">
+                Nome completo do encarregado
+            </label>
+
+            <input
+                type="text"
+                id="nomeResponsavel"
+                name="nomeResponsavel"
+                placeholder="Digite o nome completo"
+                autocomplete="name"
+                required
+            >
+
+
+            <label for="telefone">
+                Telefone
+            </label>
+
+            <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                placeholder="Ex.: 923 000 000"
+                autocomplete="tel"
+                required
+            >
+
+
+            <label for="email">
+                E-mail
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="exemplo@email.com"
+                autocomplete="email"
+                required
+            >
+
+
+            <label for="morada">
+                Morada
+            </label>
+
+            <input
+                type="text"
+                id="morada"
+                name="morada"
+                placeholder="Digite a morada"
+                autocomplete="street-address"
+                required
+            >
+
+
+            <!-- =================================================
+                 INFORMAÇÕES ADICIONAIS
+            ================================================= -->
+
+            <h2>
+                Informações adicionais
+            </h2>
+
+
+            <label for="mensagem">
+                Mensagem
+            </label>
+
+            <textarea
+                id="mensagem"
+                name="mensagem"
+                rows="5"
+                placeholder="Escreva alguma informação adicional..."
+            ></textarea>
+
+
+            <!-- =================================================
+                 TERMOS
+            ================================================= -->
+
+            <label class="checkbox-inscricao">
+
+                <input
+                    type="checkbox"
+                    id="confirmacao"
+                    name="confirmacao"
+                    required
+                >
+
+                <span>
+                    Confirmo que as informações
+                    preenchidas são verdadeiras.
+                </span>
+
+            </label>
+
+
+            <!-- =================================================
+                 BOTÃO
+            ================================================= -->
+
+            <button
+                type="submit"
+                class="botao-principal">
+
+                Enviar inscrição
+
+            </button>
+
+
+            <p class="aviso-formulario">
+
+                O envio deste formulário inicia
+                o processo de inscrição. A confirmação
+                definitiva será feita pelo Colégio Jancer.
+
+            </p>
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+<footer>
+
+    <div class="footer-conteudo">
+
+
+        <!-- COLÉGIO -->
+
+        <div>
+
+            <h3>
+                Colégio Jancer
+            </h3>
+
+            <p>
+                Educação, conhecimento e futuro.
+            </p>
+
+        </div>
+
+
+        <!-- LINKS RÁPIDOS -->
+
+        <div>
+
+            <h3>
+                Links rápidos
+            </h3>
+
+            <a href="../index.html">
+                Início
+            </a>
+
+            <a href="cursos.html">
+                Cursos
+            </a>
+
+            <a href="vagas.html">
+                Vagas
+            </a>
+
+        </div>
+
+
+        <!-- INSTITUIÇÃO -->
+
+        <div>
+
+            <h3>
+                Instituição
+            </h3>
+
+            <a href="sobre.html">
+                Sobre nós
+            </a>
+
+            <a href="eventos.html">
+                Eventos
+            </a>
+
+            <a href="contactos.html">
+                Contactos
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         RODAPÉ FINAL
+    ================================================= -->
+
+    <div class="footer-final">
+
+        <p>
+            © 2026 Colégio Jancer.
+            Todos os direitos reservados.
+        </p>
+
+        <p>
+            Luanda, Angola
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="../js/script.js"></script>
+
+</body>
+</html>

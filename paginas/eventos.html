@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Eventos e atividades do Colégio Jancer."
+    >
+
+    <title>Eventos | Colégio Jancer</title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+    <style>
+
+
+        .pagina-eventos {
+            background:
+                linear-gradient(
+                    180deg,
+                    #f7fbff 0%,
+                    #ffffff 45%,
+                    #f8fbff 100%
+                );
+            padding-bottom: 80px;
+        }
+
+
+    
+
+        .titulo-pagina {
+            text-align: center;
+            padding: 75px 20px 55px;
+            position: relative;
+        }
+
+        .titulo-pagina::after {
+            content: "";
+            width: 80px;
+            height: 4px;
+            background: #12D9E8;
+            display: block;
+            margin: 20px auto 0;
+            border-radius: 10px;
+        }
+
+        .titulo-pagina span {
+            display: inline-block;
+            color: #075BBD;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .titulo-pagina h1 {
+            margin: 0;
+            font-size: 48px;
+            color: #075BBD;
+            font-weight: 800;
+        }
+
+        .titulo-pagina p {
+            max-width: 650px;
+            margin: 15px auto 0;
+            color: #667085;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+
+    
+        .eventos-lista {
+            width: min(1100px, 92%);
+            margin: auto;
+
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .evento-card {
+            display: flex;
+            align-items: stretch;
+            gap: 25px;
+
+            background: #ffffff;
+
+            border: 1px solid #e5edf5;
+            border-radius: 20px;
+
+            padding: 25px;
+
+            box-shadow:
+                0 10px 30px rgba(7, 91, 189, 0.07);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .evento-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 40px rgba(7, 91, 189, 0.13);
+        }
+
+        .evento-data {
+            min-width: 105px;
+            width: 105px;
+
+            min-height: 115px;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #075BBD,
+                    #0b7bd3
+                );
+
+            color: #ffffff;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            box-shadow:
+                0 8px 20px rgba(7, 91, 189, 0.20);
+        }
+
+        .evento-data strong {
+            font-size: 34px;
+            line-height: 1;
+            font-weight: 800;
+        }
+
+        .evento-data span {
+            margin-top: 8px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+        .evento-conteudo {
+            flex: 1;
+        }
+
+        .evento-tipo {
+            display: inline-block;
+
+            padding: 6px 12px;
+
+            border-radius: 30px;
+
+            background: #eaf6ff;
+            color: #075BBD;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .evento-conteudo h2 {
+            margin: 10px 0 8px;
+
+            color: #172b4d;
+
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .evento-conteudo p {
+            margin: 0;
+
+            color: #667085;
+
+            line-height: 1.7;
+
+            font-size: 15px;
+        }
+
+        .evento-local {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin-top: 15px;
+
+            color: #075BBD;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .evento-local::before {
+            content: "●";
+
+            color: #12D9E8;
+
+            font-size: 11px;
+        }
+
+
+        .evento-destaque {
+            position: relative;
+
+            overflow: hidden;
+
+            border: 2px solid #f5bfd8;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #fff8fb 100%
+                );
+        }
+
+        .evento-destaque::before {
+            content: "DESTAQUE";
+
+            position: absolute;
+
+            top: 18px;
+            right: -35px;
+
+            width: 145px;
+
+            text-align: center;
+
+            padding: 7px 0;
+
+            transform: rotate(45deg);
+
+            background: #e83e8c;
+            color: white;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .evento-data-rosa {
+            background:
+                linear-gradient(
+                    145deg,
+                    #d92b78,
+                    #f06aa5
+                );
+
+            box-shadow:
+                0 8px 22px rgba(217, 43, 120, 0.22);
+        }
+
+        .evento-tipo-rosa {
+            background: #ffe8f2;
+            color: #c2185b;
+        }
+
+
+        .evento-detalhes {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .evento-detalhe {
+            background: #ffffff;
+
+            border: 1px solid #f0dce5;
+
+            border-radius: 12px;
+
+            padding: 12px 14px;
+        }
+
+        .evento-detalhe small {
+            display: block;
+
+            color: #8b8f98;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.7px;
+
+            margin-bottom: 4px;
+        }
+
+        .evento-detalhe strong {
+            color: #4a1c31;
+
+            font-size: 13px;
+        }
+
+
+        .evento-temas {
+            margin-top: 18px;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .evento-tema {
+            padding: 7px 11px;
+
+            border-radius: 20px;
+
+            background: #fff0f6;
+
+            color: #a51d58;
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        .organizacao-evento {
+            margin-top: 18px;
+
+            padding-top: 16px;
+
+            border-top: 1px solid #f1dfe7;
+
+            color: #667085;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        .organizacao-evento strong {
+            color: #4a1c31;
+        }
+
+
+
+        .eventos-info {
+            width: min(1000px, 92%);
+
+            margin: 60px auto 0;
+
+            padding: 40px;
+
+            text-align: center;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #075BBD,
+                    #06498f
+                );
+
+            color: white;
+
+            box-shadow:
+                0 15px 35px rgba(7, 91, 189, 0.18);
+        }
+
+        .eventos-info h2 {
+            margin: 0 0 12px;
+
+            font-size: 27px;
+        }
+
+        .eventos-info p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #e7f3ff;
+
+            line-height: 1.7;
+        }
+
+
+
+        @media (max-width: 800px) {
+
+            .titulo-pagina {
+                padding-top: 50px;
+            }
+
+            .titulo-pagina h1 {
+                font-size: 38px;
+            }
+
+            .evento-card {
+                flex-direction: column;
+            }
+
+            .evento-data {
+                width: 100%;
+                min-width: 100%;
+                min-height: 90px;
+            }
+
+            .evento-detalhes {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .titulo-pagina h1 {
+                font-size: 32px;
+            }
+
+            .titulo-pagina p {
+                font-size: 15px;
+            }
+
+            .eventos-lista {
+                width: 94%;
+            }
+
+            .evento-card {
+                padding: 18px;
+                border-radius: 16px;
+            }
+
+            .evento-conteudo h2 {
+                font-size: 21px;
+            }
+
+            .evento-conteudo p {
+                font-size: 14px;
+            }
+
+            .evento-destaque::before {
+                font-size: 8px;
+                right: -40px;
+            }
+
+            .eventos-info {
+                padding: 30px 20px;
+            }
+
+            .eventos-info h2 {
+                font-size: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <header class="cabecalho">
+
+        <div class="logo">
+
+            <a href="../index.html">
+
+                <svg
+                    class="logo-svg"
+                    viewBox="0 0 200 70"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-label="Colégio Jancer"
+                >
+
+                    <path
+                        d="M20 55 L20 15 L45 15 L45 55"
+                        fill="none"
+                        stroke="#075BBD"
+                        stroke-width="5"
+                    />
+
+                    <path
+                        d="M45 15 L80 15 L80 55 L45 55"
+                        fill="none"
+                        stroke="#075BBD"
+                        stroke-width="5"
+                    />
+
+                    <path
+                        d="M20 35 L80 35"
+                        stroke="#12D9E8"
+                        stroke-width="5"
+                    />
+
+                    <text
+                        x="90"
+                        y="35"
+                        font-size="22"
+                        font-weight="700"
+                        fill="#075BBD"
+                    >
+                        JANCER
+                    </text>
+
+                    <text
+                        x="91"
+                        y="52"
+                        font-size="9"
+                        fill="#666"
+                    >
+                        COLÉGIO
+                    </text>
+
+                </svg>
+
+            </a>
+
+        </div>
+
+        <nav class="nav-principal">
+
+            <a href="../index.html">
+                Início
+            </a>
+
+            <a href="cursos.html">
+                Cursos
+            </a>
+
+            <a href="vagas.html">
+                Vagas
+            </a>
+
+            <a href="eventos.html" class="ativo">
+                Eventos
+            </a>
+
+            <a href="quadro-honra.html">
+                Quadro de Honra
+            </a>
+
+
+            <a href="sobre.html">
+                Sobre
+            </a>
+
+            <a href="contactos.html">
+                Contactos
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="pagina-eventos">
+
+
+        <section class="titulo-pagina">
+
+            <span>
+                COLÉGIO JANCER
+            </span>
+
+            <h1>
+                Eventos
+            </h1>
+
+            <p>
+                Acompanhe as principais atividades,
+                projetos, encontros e momentos especiais
+                da comunidade escolar.
+            </p>
+
+        </section>
+
+
+        <section class="eventos-lista">
+
+
+            <article class="evento-card">
+
+                <div class="evento-data">
+
+                    <strong>
+                        15
+                    </strong>
+
+                    <span>
+                        SET
+                    </span>
+
+                </div>
+
+
+                <div class="evento-conteudo">
+
+                    <span class="evento-tipo">
+                        ACADÉMICO
+                    </span>
+
+                    <h2>
+                        Abertura do Ano Letivo
+                    </h2>
+
+                    <p>
+                        Cerimónia de abertura do novo ano
+                        letivo do Colégio Jancer, com
+                        apresentação da direção, professores
+                        e estudantes.
+                    </p>
+
+                    <span class="evento-local">
+                        Colégio Jancer
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="evento-card">
+
+                <div class="evento-data">
+
+                    <strong>
+                        28
+                    </strong>
+
+                    <span>
+                        SET
+                    </span>
+
+                </div>
+
+
+                <div class="evento-conteudo">
+
+                    <span class="evento-tipo">
+                        ACADÉMICO
+                    </span>
+
+                    <h2>
+                        Feira de Ciência e Tecnologia
+                    </h2>
+
+                    <p>
+                        Apresentação de projetos desenvolvidos
+                        pelos estudantes nas áreas de ciência,
+                        informática e tecnologia.
+                    </p>
+
+                    <span class="evento-local">
+                        Colégio Jancer
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="evento-card">
+
+                <div class="evento-data">
+
+                    <strong>
+                        10
+                    </strong>
+
+                    <span>
+                        OUT
+                    </span>
+
+                </div>
+
+
+                <div class="evento-conteudo">
+
+                    <span class="evento-tipo">
+                        DESPORTO
+                    </span>
+
+                    <h2>
+                        Torneio Escolar Jancer
+                    </h2>
+
+                    <p>
+                        Atividades desportivas e torneios
+                        entre estudantes das diferentes
+                        turmas e cursos.
+                    </p>
+
+                    <span class="evento-local">
+                        Instalações desportivas
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="evento-card evento-destaque">
+
+
+                <!-- DATA -->
+
+                <div class="evento-data evento-data-rosa">
+
+                    <strong>
+                        OUT
+                    </strong>
+
+                    <span>
+                        2 SÁBADOS
+                    </span>
+
+                </div>
+
+
+
+                <!-- CONTEÚDO -->
+
+                <div class="evento-conteudo">
+
+
+                    <span class="evento-tipo evento-tipo-rosa">
+                        OUTUBRO ROSA
+                    </span>
+
+
+                    <h2>
+                        “Entre Meninas”
+                    </h2>
+
+
+                    <p>
+                        Um espaço de conversa aberta e
+                        interativa destinado exclusivamente
+                        às alunas do Colégio Jancer.
+                    </p>
+
+
+                    <!-- INFORMAÇÕES -->
+
+                    <div class="evento-detalhes">
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Período
+                            </small>
+
+                            <strong>
+                                Outubro
+                            </strong>
+
+                        </div>
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Público-alvo
+                            </small>
+
+                            <strong>
+                                Alunas do Colégio
+                            </strong>
+
+                        </div>
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Duração
+                            </small>
+
+                            <strong>
+                                2 a 3 horas
+                            </strong>
+
+                        </div>
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Sessões
+                            </small>
+
+                            <strong>
+                                2 sábados
+                            </strong>
+
+                        </div>
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Formato
+                            </small>
+
+                            <strong>
+                                Conversa aberta
+                            </strong>
+
+                        </div>
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Local
+                            </small>
+
+                            <strong>
+                                Colégio Jancer
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="evento-temas">
+
+                        <span class="evento-tema">
+                            Saúde e autocuidado
+                        </span>
+
+                        <span class="evento-tema">
+                            Adolescência
+                        </span>
+
+                        <span class="evento-tema">
+                            Autoestima
+                        </span>
+
+                        <span class="evento-tema">
+                            Higiene
+                        </span>
+
+                        <span class="evento-tema">
+                            Relações interpessoais
+                        </span>
+
+                        <span class="evento-tema">
+                            Prevenção
+                        </span>
+
+                    </div>
+
+
+                    <div class="organizacao-evento">
+
+                        <strong>
+                            Organização:
+                        </strong>
+
+                        As participantes serão distribuídas
+                        em grupos para proporcionar um ambiente
+                        mais confortável, participativo e reservado.
+
+                    </div>
+
+
+                    <span class="evento-local">
+                        Colégio Jancer
+                    </span>
+
+                </div>
+
+            </article>
+
+            <article class="evento-card">
+
+                <div class="evento-data">
+
+                    <strong>
+                        25
+                    </strong>
+
+                    <span>
+                        OUT
+                    </span>
+
+                </div>
+
+
+                <div class="evento-conteudo">
+
+                    <span class="evento-tipo">
+                        CULTURA
+                    </span>
+
+                    <h2>
+                        Dia Cultural Jancer
+                    </h2>
+
+                    <p>
+                        Um momento dedicado à cultura,
+                        criatividade, música, arte e
+                        convivência entre a comunidade escolar.
+                    </p>
+
+                    <span class="evento-local">
+                        Colégio Jancer
+                    </span>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+        <section class="eventos-info">
+
+            <h2>
+                Participe nas atividades do Colégio
+            </h2>
+
+            <p>
+                Consulte regularmente esta página para
+                acompanhar novos eventos, atividades,
+                encontros e iniciativas organizadas
+                pelo Colégio Jancer.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <footer class="rodape">
+
+
+        <div>
+
+            <h3>
+                Colégio Jancer
+            </h3>
+
+            <p>
+                Educação, conhecimento e futuro.
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                Links rápidos
+            </h4>
+
+            <a href="cursos.html">
+                Cursos
+            </a>
+
+            <a href="vagas.html">
+                Vagas
+            </a>
+
+            <a href="contactos.html">
+                Contactos
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h4>
+                Redes sociais
+            </h4>
+
+            <a
+                href="#"
+                target="_blank"
+            >
+                Facebook
+            </a>
+
+            <a
+                href="#"
+                target="_blank"
+            >
+                Instagram
+            </a>
+
+            <a
+                href="#"
+                target="_blank"
+            >
+                WhatsApp
+            </a>
+
+        </div>
+
+
+    </footer>
+
+
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
