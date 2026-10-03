@@ -1,55 +1,433 @@
 <!DOCTYPE html>
+
 <html lang="pt">
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <title>Inscrição | Colégio Jancer</title>
+<title>Inscrição | Colégio Jancer</title>
 
-    <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+    .erro-campo {
+        display: none;
+        color: #d93025;
+        font-size: 14px;
+        margin-top: 6px;
+        margin-bottom: 10px;
+    }
+
+    .campo-invalido {
+        border: 2px solid #d93025 !important;
+    }
+
+    .campo-valido {
+        border: 2px solid #198754 !important;
+    }
+
+    .aviso-saude {
+        background: #f5f8ff;
+        border-left: 4px solid #075BBD;
+        padding: 14px;
+        margin-bottom: 18px;
+        border-radius: 6px;
+        line-height: 1.5;
+    }
+
+    .aviso-saude strong {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .mensagem-sucesso {
+        display: none;
+        padding: 15px;
+        margin-top: 18px;
+        border-radius: 8px;
+        background: #e8f7ee;
+        color: #176b3a;
+        border: 1px solid #b7e4c7;
+    }
+</style>
 
 </head>
 
 <body>
 
-<!-- =====================================================
-     CABEÇALHO
-===================================================== -->
-
 <header>
 
-    <div class="logo">
+<div class="logo">
 
-        <a href="../index.html"
-           aria-label="Página inicial do Colégio Jancer">
+    <a href="../index.html"
+       aria-label="Página inicial do Colégio Jancer">
 
-            <img
-                class="logo-jancer"
-                src="../logo-jancer.png"
-                alt="Logo do Colégio Jancer"
-            >
+        <img
+            class="logo-jancer"
+            src="../logo-jancer.png"
+            alt="Logo do Colégio Jancer"
+        >
 
-        </a>
+    </a>
 
-        <div class="logo-texto">
+    <div class="logo-texto">
 
-            <span>COLÉGIO</span>
+        <span>COLÉGIO</span>
 
-            <strong>JANCER</strong>
+        <strong>JANCER</strong>
+
+    </div>
+
+</div>
+
+<nav>
+
+    <a href="../index.html">
+
+    </a>
+
+    <a href="cursos.html">
+
+    </a>
+
+    <a href="inscricao.html">
+    
+    </a>
+
+    <a href="vagas.html">
+
+    </a>
+
+    <a href="eventos.html">
+    
+    </a>
+
+    <a href="alunos.html">
+
+    </a>
+
+    <a href="contactos.html">
+    
+    </a>
+
+</nav>
+
+<a href="inscricao.html"
+   class="botao-inscricao">
+
+</a>
+
+</header>
+
+<main>
+
+<section class="inscricao">
+
+    <div>
+
+        <h1>
+            Inscrição Online
+        </h1>
+
+        <p>
+            Preencha o formulário abaixo para
+            iniciar o processo de inscrição
+            no Colégio Jancer.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="formulario">
+
+    <form id="formInscricao"
+          novalidate>
+
+        <h2>
+            Dados do aluno
+        </h2>
+
+
+        <label for="nomeAluno">
+            Nome completo do aluno
+        </label>
+
+        <input
+            type="text"
+            id="nomeAluno"
+            name="nomeAluno"
+            placeholder="Digite o nome completo do aluno"
+            autocomplete="name"
+            required
+        >
+
+
+        <label for="dataNascimento">
+            Data de nascimento
+        </label>
+
+        <input
+            type="date"
+            id="dataNascimento"
+            name="dataNascimento"
+            required
+        >
+
+
+        <label for="curso">
+            Curso pretendido
+        </label>
+
+        <select
+            id="curso"
+            name="curso"
+            required
+        >
+
+            <option value="">
+                Selecione um curso
+            </option>
+
+            <option value="Informática">
+                Informática
+            </option>
+
+            <option value="Ciências Físicas e Biológicas">
+                Ciências Físicas e Biológicas
+            </option>
+
+            <option value="Ciências Económicas e Jurídicas">
+                Ciências Económicas e Jurídicas
+            </option>
+
+        </select>
+
+        <h2>
+            Dados do encarregado de educação
+        </h2>
+
+
+        <label for="nomeResponsavel">
+            Nome completo do encarregado
+        </label>
+
+        <input
+            type="text"
+            id="nomeResponsavel"
+            name="nomeResponsavel"
+            placeholder="Digite o nome completo"
+            autocomplete="name"
+            required
+        >
+
+
+        <label for="telefone">
+
+</label>
+
+<input
+    type="text"
+    id="telefone"
+    name="telefone"
+    placeholder="Ex.: 923000000"
+    autocomplete="tel"
+    inputmode="numeric"
+    maxlength="9"
+    required
+    onkeydown="
+        if (
+            !(
+                (event.key >= '0' && event.key <= '9') ||
+                event.key === 'Backspace' ||
+                event.key === 'Delete' ||
+                event.key === 'Tab' ||
+                event.key === 'ArrowLeft' ||
+                event.key === 'ArrowRight' ||
+                event.key === 'Home' ||
+                event.key === 'End'
+            )
+        ) {
+            event.preventDefault();
+        }
+    "
+    oninput="
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9);
+    "
+    onpaste="
+        event.preventDefault();
+        const texto = event.clipboardData.getData('text');
+        this.value = texto.replace(/[^0-9]/g, '').slice(0, 9);
+    "
+>
+
+<p
+    id="erroTelefone"
+    class="erro-campo"
+></p>
+
+
+        <label for="email">
+            E-mail
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="exemplo@email.com"
+            autocomplete="email"
+            required
+        >
+
+        <div
+            id="erroEmail"
+            class="erro-campo">
+        </div>
+
+
+        <label for="morada">
+            Morada
+        </label>
+
+        <input
+            type="text"
+            id="morada"
+            name="morada"
+            placeholder="Digite a morada"
+            autocomplete="street-address"
+            required
+        >
+
+        <h2>
+            Informações de saúde
+        </h2>
+
+        <div class="aviso-saude">
+
+            <strong>
+                Informação importante
+            </strong>
+
+            Informe se o aluno possui alguma
+            doença, problema de saúde, alergia
+            ou outra condição que o colégio
+            deva conhecer.
+
+            <br><br>
+
+            <strong>Exemplos:</strong>
+
+            Asma, alergias, intolerâncias,
+            medicação importante ou outras
+            informações relevantes.
 
         </div>
+
+
+        <label for="saudeAluno">
+            Doenças, problemas de saúde ou alergias
+        </label>
+
+        <textarea
+            id="saudeAluno"
+            name="saudeAluno"
+            rows="5"
+            placeholder="Ex.: O aluno possui asma e alergia a determinado medicamento. Se não possuir, escreva: Nenhum."
+        ></textarea>
+
+        <h2>
+            Informações adicionais
+        </h2>
+
+
+        <label for="mensagem">
+            Mensagem
+        </label>
+
+        <textarea
+            id="mensagem"
+            name="mensagem"
+            rows="5"
+            placeholder="Escreva alguma informação adicional..."
+        ></textarea>
+
+        <label class="checkbox-inscricao">
+
+            <input
+                type="checkbox"
+                id="confirmacao"
+                name="confirmacao"
+                required
+            >
+
+            <span>
+                Confirmo que as informações
+                preenchidas são verdadeiras.
+            </span>
+
+        </label>
+
+        <button
+            type="submit"
+            class="botao-principal">
+
+            Enviar inscrição pelo WhatsApp
+
+        </button>
+
+
+        <div
+            id="mensagemSucesso"
+            class="mensagem-sucesso">
+
+            Todos os dados foram validados.
+            A abrir o WhatsApp para enviar
+            a inscrição ao Colégio Jancer.
+
+        </div>
+
+
+        <p class="aviso-formulario">
+
+            O envio deste formulário inicia
+            o processo de inscrição. A confirmação
+            definitiva será feita pelo Colégio Jancer.
+
+        </p>
+
+    </form>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="footer-conteudo">
+
+    <div>
+
+        <h3>
+            Colégio Jancer
+        </h3>
+
+        <p>
+            Educação, conhecimento e futuro.
+        </p>
 
     </div>
 
 
-    <!-- =================================================
-         NAVEGAÇÃO
-    ================================================= -->
+    <div>
 
-    <nav>
+        <h3>
+            Links rápidos
+        </h3>
 
         <a href="../index.html">
             Início
@@ -59,374 +437,52 @@
             Cursos
         </a>
 
-        <a href="inscricao.html">
-            Inscrição
-        </a>
-
         <a href="vagas.html">
             Vagas
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Instituição
+        </h3>
+
+        <a href="sobre.html">
+            Sobre nós
         </a>
 
         <a href="eventos.html">
             Eventos
         </a>
 
-        <a href="alunos.html">
-            Alunos
-        </a>
-
         <a href="contactos.html">
             Contactos
         </a>
 
-    </nav>
-
-
-    <a href="inscricao.html"
-       class="botao-inscricao">
-
-        Fazer inscrição
-
-    </a>
-
-</header>
-
-
-<!-- =====================================================
-     CONTEÚDO PRINCIPAL
-===================================================== -->
-
-<main>
-
-    <!-- =================================================
-         INTRODUÇÃO
-    ================================================= -->
-
-    <section class="inscricao">
-
-        <div>
-
-            <h1>
-                Inscrição Online
-            </h1>
-
-            <p>
-                Preencha o formulário abaixo para
-                iniciar o processo de inscrição
-                no Colégio Jancer.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         FORMULÁRIO
-    ================================================= -->
-
-    <section class="formulario">
-
-        <form id="formInscricao">
-
-
-            <!-- =================================================
-                 DADOS DO ALUNO
-            ================================================= -->
-
-            <h2>
-                Dados do aluno
-            </h2>
-
-
-            <label for="nomeAluno">
-                Nome completo do aluno
-            </label>
-
-            <input
-                type="text"
-                id="nomeAluno"
-                name="nomeAluno"
-                placeholder="Digite o nome completo do aluno"
-                autocomplete="name"
-                required
-            >
-
-
-            <label for="dataNascimento">
-                Data de nascimento
-            </label>
-
-            <input
-                type="date"
-                id="dataNascimento"
-                name="dataNascimento"
-                required
-            >
-
-
-            <label for="curso">
-                Curso pretendido
-            </label>
-
-            <select
-                id="curso"
-                name="curso"
-                required
-            >
-
-                <option value="">
-                    Selecione um curso
-                </option>
-
-                <option value="informatica">
-                    Informática
-                </option>
-
-                <option value="cfb">
-                    Ciências Físicas e Biológicas
-                </option>
-
-                <option value="cej">
-                    Ciências Económicas e Jurídicas
-                </option>
-
-
-            </select>
-
-
-            <!-- =================================================
-                 DADOS DO ENCARREGADO
-            ================================================= -->
-
-            <h2>
-                Dados do encarregado de educação
-            </h2>
-
-
-            <label for="nomeResponsavel">
-                Nome completo do encarregado
-            </label>
-
-            <input
-                type="text"
-                id="nomeResponsavel"
-                name="nomeResponsavel"
-                placeholder="Digite o nome completo"
-                autocomplete="name"
-                required
-            >
-
-
-            <label for="telefone">
-                Telefone
-            </label>
-
-            <input
-                type="tel"
-                id="telefone"
-                name="telefone"
-                placeholder="Ex.: 923 000 000"
-                autocomplete="tel"
-                required
-            >
-
-
-            <label for="email">
-                E-mail
-            </label>
-
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="exemplo@email.com"
-                autocomplete="email"
-                required
-            >
-
-
-            <label for="morada">
-                Morada
-            </label>
-
-            <input
-                type="text"
-                id="morada"
-                name="morada"
-                placeholder="Digite a morada"
-                autocomplete="street-address"
-                required
-            >
-
-
-            <!-- =================================================
-                 INFORMAÇÕES ADICIONAIS
-            ================================================= -->
-
-            <h2>
-                Informações adicionais
-            </h2>
-
-
-            <label for="mensagem">
-                Mensagem
-            </label>
-
-            <textarea
-                id="mensagem"
-                name="mensagem"
-                rows="5"
-                placeholder="Escreva alguma informação adicional..."
-            ></textarea>
-
-
-            <!-- =================================================
-                 TERMOS
-            ================================================= -->
-
-            <label class="checkbox-inscricao">
-
-                <input
-                    type="checkbox"
-                    id="confirmacao"
-                    name="confirmacao"
-                    required
-                >
-
-                <span>
-                    Confirmo que as informações
-                    preenchidas são verdadeiras.
-                </span>
-
-            </label>
-
-
-            <!-- =================================================
-                 BOTÃO
-            ================================================= -->
-
-            <button
-                type="submit"
-                class="botao-principal">
-
-                Enviar inscrição
-
-            </button>
-
-
-            <p class="aviso-formulario">
-
-                O envio deste formulário inicia
-                o processo de inscrição. A confirmação
-                definitiva será feita pelo Colégio Jancer.
-
-            </p>
-
-        </form>
-
-    </section>
-
-</main>
-
-
-<!-- =====================================================
-     RODAPÉ
-===================================================== -->
-
-<footer>
-
-    <div class="footer-conteudo">
-
-
-        <!-- COLÉGIO -->
-
-        <div>
-
-            <h3>
-                Colégio Jancer
-            </h3>
-
-            <p>
-                Educação, conhecimento e futuro.
-            </p>
-
-        </div>
-
-
-        <!-- LINKS RÁPIDOS -->
-
-        <div>
-
-            <h3>
-                Links rápidos
-            </h3>
-
-            <a href="../index.html">
-                Início
-            </a>
-
-            <a href="cursos.html">
-                Cursos
-            </a>
-
-            <a href="vagas.html">
-                Vagas
-            </a>
-
-        </div>
-
-
-        <!-- INSTITUIÇÃO -->
-
-        <div>
-
-            <h3>
-                Instituição
-            </h3>
-
-            <a href="sobre.html">
-                Sobre nós
-            </a>
-
-            <a href="eventos.html">
-                Eventos
-            </a>
-
-            <a href="contactos.html">
-                Contactos
-            </a>
-
-        </div>
-
     </div>
 
+</div>
 
-    <!-- =================================================
-         RODAPÉ FINAL
-    ================================================= -->
 
-    <div class="footer-final">
+<div class="footer-final">
 
-        <p>
-            © 2026 Colégio Jancer.
-            Todos os direitos reservados.
-        </p>
+    <p>
+        © 2026 Colégio Jancer.
+        Todos os direitos reservados Rafael Araújo.
+    </p>
 
-        <p>
-            Luanda, Angola
-        </p>
+    <p>
+        Luanda, Angola
+    </p>
 
-    </div>
+</div>
 
 </footer>
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script src="../js/script.js"></script>
+<script src="../js/inscricao.js"></script>
 
 </body>
 </html>

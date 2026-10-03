@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="pt">
 
 <head>
@@ -23,6 +23,44 @@
     >
 
     <style>
+
+        .cabecalho .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cabecalho .logo > a {
+            display: flex;
+            align-items: center;
+        }
+
+        .cabecalho .logo-jancer {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .cabecalho .logo-texto {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .cabecalho .logo-texto span {
+            font-size: 9px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        .cabecalho .logo-texto strong {
+            margin-top: 3px;
+            font-size: 18px;
+            color: #075BBD;
+            letter-spacing: 1px;
+        }
+
 
 
         .pagina-eventos {
@@ -262,6 +300,51 @@
             letter-spacing: 1px;
         }
 
+
+        .evento-novembro {
+            border-color: #b9d7f5;
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #f5faff 100%
+                );
+        }
+
+        .evento-novembro::before {
+            background: #075BBD;
+        }
+
+        .evento-data-azul {
+            background:
+                linear-gradient(
+                    145deg,
+                    #075BBD,
+                    #2f8fe5
+                );
+
+            box-shadow:
+                0 8px 22px rgba(7, 91, 189, 0.22);
+        }
+
+        .evento-tipo-azul {
+            background: #e7f2ff;
+            color: #075BBD;
+        }
+
+        .evento-temas-azul .evento-tema {
+            background: #eaf4ff;
+            color: #075BBD;
+        }
+
+        .organizacao-azul {
+            border-top-color: #dbeaf8;
+        }
+
+        .organizacao-azul strong {
+            color: #173b62;
+        }
+
         .evento-data-rosa {
             background:
                 linear-gradient(
@@ -492,57 +575,24 @@
 
         <div class="logo">
 
-            <a href="../index.html">
+            <a href="../index.html"
+               aria-label="Página inicial do Colégio Jancer">
 
-                <svg
-                    class="logo-svg"
-                    viewBox="0 0 200 70"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-label="Colégio Jancer"
+                <img
+                    class="logo-jancer"
+                    src="../logo-jancer.png"
+                    alt="Logo do Colégio Jancer"
                 >
 
-                    <path
-                        d="M20 55 L20 15 L45 15 L45 55"
-                        fill="none"
-                        stroke="#075BBD"
-                        stroke-width="5"
-                    />
-
-                    <path
-                        d="M45 15 L80 15 L80 55 L45 55"
-                        fill="none"
-                        stroke="#075BBD"
-                        stroke-width="5"
-                    />
-
-                    <path
-                        d="M20 35 L80 35"
-                        stroke="#12D9E8"
-                        stroke-width="5"
-                    />
-
-                    <text
-                        x="90"
-                        y="35"
-                        font-size="22"
-                        font-weight="700"
-                        fill="#075BBD"
-                    >
-                        JANCER
-                    </text>
-
-                    <text
-                        x="91"
-                        y="52"
-                        font-size="9"
-                        fill="#666"
-                    >
-                        COLÉGIO
-                    </text>
-
-                </svg>
-
             </a>
+
+            <div class="logo-texto">
+
+                <span>COLÉGIO</span>
+
+                <strong>JANCER</strong>
+
+            </div>
 
         </div>
 
@@ -605,128 +655,6 @@
 
 
         <section class="eventos-lista">
-
-
-            <article class="evento-card">
-
-                <div class="evento-data">
-
-                    <strong>
-                        15
-                    </strong>
-
-                    <span>
-                        SET
-                    </span>
-
-                </div>
-
-
-                <div class="evento-conteudo">
-
-                    <span class="evento-tipo">
-                        ACADÉMICO
-                    </span>
-
-                    <h2>
-                        Abertura do Ano Letivo
-                    </h2>
-
-                    <p>
-                        Cerimónia de abertura do novo ano
-                        letivo do Colégio Jancer, com
-                        apresentação da direção, professores
-                        e estudantes.
-                    </p>
-
-                    <span class="evento-local">
-                        Colégio Jancer
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="evento-card">
-
-                <div class="evento-data">
-
-                    <strong>
-                        28
-                    </strong>
-
-                    <span>
-                        SET
-                    </span>
-
-                </div>
-
-
-                <div class="evento-conteudo">
-
-                    <span class="evento-tipo">
-                        ACADÉMICO
-                    </span>
-
-                    <h2>
-                        Feira de Ciência e Tecnologia
-                    </h2>
-
-                    <p>
-                        Apresentação de projetos desenvolvidos
-                        pelos estudantes nas áreas de ciência,
-                        informática e tecnologia.
-                    </p>
-
-                    <span class="evento-local">
-                        Colégio Jancer
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="evento-card">
-
-                <div class="evento-data">
-
-                    <strong>
-                        10
-                    </strong>
-
-                    <span>
-                        OUT
-                    </span>
-
-                </div>
-
-
-                <div class="evento-conteudo">
-
-                    <span class="evento-tipo">
-                        DESPORTO
-                    </span>
-
-                    <h2>
-                        Torneio Escolar Jancer
-                    </h2>
-
-                    <p>
-                        Atividades desportivas e torneios
-                        entre estudantes das diferentes
-                        turmas e cursos.
-                    </p>
-
-                    <span class="evento-local">
-                        Instalações desportivas
-                    </span>
-
-                </div>
-
-            </article>
-
 
             <article class="evento-card evento-destaque">
 
@@ -904,36 +832,172 @@
 
             </article>
 
-            <article class="evento-card">
+            <article class="evento-card evento-destaque evento-novembro">
 
-                <div class="evento-data">
+
+                <!-- DATA -->
+
+                <div class="evento-data evento-data-azul">
 
                     <strong>
-                        25
+                        NOV
                     </strong>
 
                     <span>
-                        OUT
+                        2 SÁBADOS
                     </span>
 
                 </div>
 
 
+                <!-- CONTEÚDO -->
+
                 <div class="evento-conteudo">
 
-                    <span class="evento-tipo">
-                        CULTURA
+
+                    <span class="evento-tipo evento-tipo-azul">
+                        NOVEMBRO AZUL
                     </span>
 
+
                     <h2>
-                        Dia Cultural Jancer
+                        “Entre Homens”
                     </h2>
 
+
                     <p>
-                        Um momento dedicado à cultura,
-                        criatividade, música, arte e
-                        convivência entre a comunidade escolar.
+                        Um espaço de conversa aberta e interativa destinado
+                        exclusivamente aos alunos do Colégio Jancer, com foco
+                        em saúde, autocuidado, prevenção e bem-estar masculino.
                     </p>
+
+
+                    <!-- INFORMAÇÕES -->
+
+                    <div class="evento-detalhes">
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Período
+                            </small>
+
+                            <strong>
+                                Novembro
+                            </strong>
+
+                        </div>
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Público-alvo
+                            </small>
+
+                            <strong>
+                                Alunos do Colégio
+                            </strong>
+
+                        </div>
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Duração
+                            </small>
+
+                            <strong>
+                                2 a 3 horas
+                            </strong>
+
+                        </div>
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Sessões
+                            </small>
+
+                            <strong>
+                                2 sábados
+                            </strong>
+
+                        </div>
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Formato
+                            </small>
+
+                            <strong>
+                                Conversa aberta
+                            </strong>
+
+                        </div>
+
+
+                        <div class="evento-detalhe">
+
+                            <small>
+                                Local
+                            </small>
+
+                            <strong>
+                                Colégio Jancer
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="evento-temas evento-temas-azul">
+
+                        <span class="evento-tema">
+                            Saúde e autocuidado
+                        </span>
+
+                        <span class="evento-tema">
+                            Adolescência
+                        </span>
+
+                        <span class="evento-tema">
+                            Bem-estar
+                        </span>
+
+                        <span class="evento-tema">
+                            Higiene
+                        </span>
+
+                        <span class="evento-tema">
+                            Relações interpessoais
+                        </span>
+
+                        <span class="evento-tema">
+                            Prevenção
+                        </span>
+
+                    </div>
+
+
+                    <div class="organizacao-evento organizacao-azul">
+
+                        <strong>
+                            Organização:
+                        </strong>
+
+                        Os participantes serão distribuídos
+                        em grupos para proporcionar um ambiente
+                        mais confortável, participativo e reservado.
+
+                    </div>
+
 
                     <span class="evento-local">
                         Colégio Jancer
@@ -944,7 +1008,178 @@
             </article>
 
 
-        </section>
+            <article class="evento-card">
+
+                <div class="evento-data">
+
+                    <strong>
+                        II
+                    </strong>
+
+                    <span>
+                        TRIMESTRE
+                    </span>
+
+                </div>
+
+                <div class="evento-conteudo">
+
+                    <span class="evento-tipo">
+                        HIGIENIZAÇÃO
+                    </span>
+
+                    <h2>
+                        Campanha de Higienização
+                    </h2>
+
+                    <p>
+                        Campanha destinada à melhoria das condições de higiene
+                        no Colégio, com acompanhamento, aconselhamento aos alunos,
+                        limpeza e controlo diário.
+                    </p>
+
+                    <div class="evento-detalhes">
+
+                        <div class="evento-detalhe">
+                            <small>Período</small>
+                            <strong>II trimestre</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Fase 1</small>
+                            <strong>Levantamento das condições</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Fase 2</small>
+                            <strong>Aquisição dos materiais essenciais</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Fase 3</small>
+                            <strong>Limpeza e controlo diário</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Fase 4</small>
+                            <strong>Avaliação e reposição</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Público-alvo</small>
+                            <strong>Alunos do Colégio</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="organizacao-evento">
+
+                        <strong>
+                            Organização:
+                        </strong>
+
+                        A associação funcionará como parceira da fiscalização,
+                        enquanto a Direcção mantém a responsabilidade administrativa
+                        e os responsáveis de higiene executam a limpeza.
+
+                    </div>
+
+                    <span class="evento-local">
+                        Colégio Jancer
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article class="evento-card">
+
+                <div class="evento-data">
+
+                    <strong>
+                        II
+                    </strong>
+
+                    <span>
+                        TRIMESTRE
+                    </span>
+
+                </div>
+
+                <div class="evento-conteudo">
+
+                    <span class="evento-tipo">
+                        INTERTURMAS
+                    </span>
+
+                    <h2>
+                        “Competição, Convivência e Espírito de Equipa”
+                    </h2>
+
+                    <p>
+                        Atividade destinada a criar oportunidades de convivência
+                        saudável entre estudantes de diferentes turmas e cursos,
+                        promovendo espírito de equipa, disciplina, respeito pelas
+                        regras, liderança e capacidade de trabalhar colectivamente.
+                    </p>
+
+                    <div class="evento-detalhes">
+
+                        <div class="evento-detalhe">
+                            <small>Período</small>
+                            <strong>II trimestre</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Público-alvo</small>
+                            <strong>Alunos das diferentes turmas</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Modalidade</small>
+                            <strong>Futebol</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Modalidade</small>
+                            <strong>Basquetebol</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Modalidade</small>
+                            <strong>Voleibol</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Modalidades</small>
+                            <strong>Xadrez, Dama e Quiz académico</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="evento-temas">
+
+                        <span class="evento-tema">Futebol</span>
+                        <span class="evento-tema">Basquetebol</span>
+                        <span class="evento-tema">Voleibol</span>
+                        <span class="evento-tema">Xadrez</span>
+                        <span class="evento-tema">Dama</span>
+                        <span class="evento-tema">Quiz académico</span>
+                        <span class="evento-tema">Jogos recreativos</span>
+                        <span class="evento-tema">Outras modalidades aprovadas pela Direcção</span>
+
+                    </div>
+
+                    <span class="evento-local">
+                        Colégio Jancer
+                    </span>
+
+                </div>
+
+            </article>
+
+</section>
 
         <section class="eventos-info">
 
