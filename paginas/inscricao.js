@@ -6,13 +6,27 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    // =====================================================
+    // NÚMERO DO WHATSAPP DO COLÉGIO
+    // =====================================================
+
     const numeroWhatsApp = "244974501253";
+
+
+    // =====================================================
+    // CAMPOS
+    // =====================================================
 
     const telefone = document.getElementById("telefone");
     const email = document.getElementById("email");
 
     const erroTelefone = document.getElementById("erroTelefone");
     const erroEmail = document.getElementById("erroEmail");
+
+
+    // =====================================================
+    // PREFIXOS TELEFÓNICOS DE ANGOLA
+    // =====================================================
 
     const prefixosUnitel = [
         "921", "922", "923", "924", "925",
@@ -31,16 +45,27 @@ document.addEventListener("DOMContentLoaded", function () {
         "916", "917", "918", "919"
     ];
 
+
+    // =====================================================
+    // MOSTRAR ERRO
+    // =====================================================
+
     function mostrarErro(campo, mensagem, elementoErro) {
 
         campo.classList.remove("campo-valido");
         campo.classList.add("campo-invalido");
 
         if (elementoErro) {
+
             elementoErro.textContent = mensagem;
             elementoErro.style.display = "block";
         }
     }
+
+
+    // =====================================================
+    // REMOVER ERRO
+    // =====================================================
 
     function removerErro(campo, elementoErro) {
 
@@ -48,15 +73,20 @@ document.addEventListener("DOMContentLoaded", function () {
         campo.classList.add("campo-valido");
 
         if (elementoErro) {
+
             elementoErro.textContent = "";
             elementoErro.style.display = "none";
         }
     }
 
+
+    // =====================================================
+    // TELEFONE
+    // =====================================================
+
     if (telefone) {
 
-        /* Bloqueia letras e símbolos quando são digitados */
-
+        // Permitir somente números
         telefone.addEventListener("keydown", function (evento) {
 
             const teclasPermitidas = [
@@ -76,11 +106,24 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (!/^[0-9]$/.test(evento.key)) {
+
                 evento.preventDefault();
             }
-
         });
 
+
+        // Limpar qualquer coisa que não seja número
+        telefone.addEventListener("input", function () {
+
+            this.value = this.value
+                .replace(/[^0-9]/g, "")
+                .slice(0, 9);
+
+            validarTelefone();
+        });
+
+
+        // Bloquear colagem de letras/símbolos
         telefone.addEventListener("paste", function (evento) {
 
             evento.preventDefault();
@@ -91,45 +134,31 @@ document.addEventListener("DOMContentLoaded", function () {
             const somenteNumeros =
                 textoColado.replace(/[^0-9]/g, "");
 
-            const numeroFinal =
+            this.value =
                 somenteNumeros.slice(0, 9);
 
-            this.value = numeroFinal;
-
             validarTelefone();
-
-        });
-
-        telefone.addEventListener("input", function () {
-
-            this.value =
-                this.value
-                .replace(/[^0-9]/g, "")
-                .slice(0, 9);
-
-            validarTelefone();
-
         });
 
 
-        /* Impede arrastar texto para dentro do campo */
-
+        // Impedir arrastar texto para o campo
         telefone.addEventListener("drop", function (evento) {
 
             evento.preventDefault();
-
         });
 
 
-        /* Validação ao sair do campo */
-
+        // Validar ao sair do campo
         telefone.addEventListener("blur", function () {
 
             validarTelefone();
-
         });
-
     }
+
+
+    // =====================================================
+    // VALIDAR TELEFONE
+    // =====================================================
 
     function validarTelefone() {
 
@@ -137,7 +166,9 @@ document.addEventListener("DOMContentLoaded", function () {
             return false;
         }
 
-        const numero = telefone.value.trim();
+        const numero =
+            telefone.value.trim();
+
 
         if (numero === "") {
 
@@ -187,7 +218,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        const prefixo = numero.substring(0, 3);
+        const prefixo =
+            numero.substring(0, 3);
+
 
         const prefixoValido =
             prefixosUnitel.includes(prefixo) ||
@@ -207,10 +240,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        removerErro(telefone, erroTelefone);
+        removerErro(
+            telefone,
+            erroTelefone
+        );
 
         return true;
     }
+
+
+    // =====================================================
+    // VALIDAR EMAIL
+    // =====================================================
 
     function validarEmail() {
 
@@ -218,7 +259,9 @@ document.addEventListener("DOMContentLoaded", function () {
             return false;
         }
 
-        const valor = email.value.trim();
+        const valor =
+            email.value.trim();
+
 
         if (valor === "") {
 
@@ -248,39 +291,55 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        removerErro(email, erroEmail);
+        removerErro(
+            email,
+            erroEmail
+        );
 
         return true;
     }
+
+
+    // =====================================================
+    // VALIDAR EMAIL ENQUANTO ESCREVE
+    // =====================================================
 
     if (email) {
 
         email.addEventListener("input", function () {
 
             validarEmail();
-
         });
+
 
         email.addEventListener("blur", function () {
 
             validarEmail();
-
         });
-
     }
+
+
+    // =====================================================
+    // ENVIO DO FORMULÁRIO
+    // =====================================================
 
     formulario.addEventListener("submit", function (evento) {
 
+        // Impede a página de resetar/recarregar
         evento.preventDefault();
 
+
+        // Validar telefone
         const telefoneValido =
             validarTelefone();
 
 
+        // Validar email
         const emailValido =
             validarEmail();
 
 
+        // Validar restantes campos obrigatórios
         const formularioValido =
             formulario.checkValidity();
 
@@ -308,40 +367,58 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+
+        // =================================================
+        // PEGAR DADOS DO FORMULÁRIO
+        // =================================================
+
         const nomeAluno =
             document.getElementById("nomeAluno").value.trim();
+
 
         const dataNascimento =
             document.getElementById("dataNascimento").value;
 
+
         const curso =
             document.getElementById("curso").value;
+
 
         const nomeResponsavel =
             document.getElementById("nomeResponsavel").value.trim();
 
+
         const numeroTelefone =
             telefone.value.trim();
+
 
         const enderecoEmail =
             email.value.trim();
 
+
         const morada =
             document.getElementById("morada").value.trim();
+
 
         const mensagem =
             document.getElementById("mensagem").value.trim();
 
+
         const saudeAlunoElement =
             document.getElementById("saudeAluno");
+
 
         const saudeAluno =
             saudeAlunoElement
                 ? saudeAlunoElement.value.trim()
                 : "Não informado";
 
-        const textoWhatsApp =
 
+        // =================================================
+        // CRIAR MENSAGEM
+        // =================================================
+
+        const textoWhatsApp =
 `*NOVA INSCRIÇÃO — COLÉGIO JANCER*
 
 *DADOS DO ALUNO*
@@ -354,6 +431,7 @@ ${dataNascimento}
 
 Curso pretendido:
 ${curso}
+
 
 *DADOS DO ENCARREGADO*
 
@@ -369,26 +447,40 @@ ${enderecoEmail}
 Morada:
 ${morada}
 
+
 *INFORMAÇÕES DE SAÚDE*
 
 Doenças, alergias ou outros problemas de saúde:
-${saudeAluno}
+${saudeAluno || "Nenhuma informação fornecida."}
+
 
 *INFORMAÇÕES ADICIONAIS*
 
 ${mensagem || "Nenhuma informação adicional."}
 
+
 A pessoa confirma que as informações preenchidas são verdadeiras.`;
 
 
+        // =================================================
+        // CODIFICAR MENSAGEM
+        // =================================================
 
         const mensagemCodificada =
             encodeURIComponent(textoWhatsApp);
 
 
+        // =================================================
+        // LINK CORRETO DO WHATSAPP
+        // =================================================
+
         const linkWhatsApp =
             `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
 
+
+        // =================================================
+        // ABRIR WHATSAPP
+        // =================================================
 
         window.open(
             linkWhatsApp,
@@ -398,4 +490,3 @@ A pessoa confirma que as informações preenchidas são verdadeiras.`;
     });
 
 });
-
