@@ -369,10 +369,6 @@ document.addEventListener("DOMContentLoaded", function () {
             : "Não informado";
 
 
-        // =================================================
-        // TRANSFORMAR O CURSO EM NOME
-        // =================================================
-
         let nomeCurso = curso;
 
         if (curso === "informatica") {
