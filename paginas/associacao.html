@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -49,6 +48,7 @@
   </header>
 
   <main>
+    <!-- APRESENTAÇÃO -->
     <section class="hero" id="inicio">
       <div class="hero-fundo" aria-hidden="true"></div>
       <div class="hero-sobreposicao" aria-hidden="true"></div>
@@ -86,7 +86,9 @@
           O nosso objetivo é incentivar a responsabilidade, a criatividade,
           a cooperação e o respeito, dando espaço às ideias dos estudantes.
         </p>
-        <a href="#objetivos" class="link-seta">Conhecer os nossos objetivos <span>→</span></a>
+        <a href="#objetivos" class="link-seta">
+          Conhecer os nossos objetivos <span>→</span>
+        </a>
       </div>
 
       <div class="sobre-destaque">
@@ -103,6 +105,7 @@
       </div>
     </section>
 
+   
     <section class="objetivos secao" id="objetivos">
       <div class="cabecalho-secao">
         <span class="etiqueta">A NOSSA MISSÃO</span>
@@ -131,7 +134,7 @@
       </div>
     </section>
 
-    <!-- GALERIA INTERATIVA -->
+    
     <section class="galeria-premium secao" id="galeria">
       <div class="galeria-fundo" aria-hidden="true"></div>
 
@@ -168,6 +171,7 @@
             <img src="../biblioteca.png.jpg" alt="Biblioteca do Colégio Jancer" loading="lazy">
             <span class="galeria-abrir" aria-hidden="true">↗</span>
           </span>
+
           <span class="galeria-cartao-texto">
             <span class="galeria-categoria">COLÉGIO</span>
             <strong>Biblioteca</strong>
@@ -187,6 +191,7 @@
             <img src="../image1.png.jpeg" alt="Atividade da Associação de Estudantes" loading="lazy">
             <span class="galeria-abrir" aria-hidden="true">↗</span>
           </span>
+
           <span class="galeria-cartao-texto">
             <span class="galeria-categoria">EVENTOS E ATIVIDADES</span>
             <strong>Momentos da associação</strong>
@@ -201,8 +206,15 @@
       </p>
     </section>
 
-    <!-- JANELA DE VISUALIZAÇÃO DA GALERIA -->
-    <div class="galeria-modal" id="galeriaModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    
+    <div
+      class="galeria-modal"
+      id="galeriaModal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitulo"
+    >
       <div class="modal-fundo" data-fechar-galeria></div>
 
       <div class="modal-conteudo" role="document">
@@ -232,6 +244,7 @@
       </div>
     </div>
 
+    
     <section class="participacao secao" id="eventos">
       <div class="participacao-conteudo">
         <span class="etiqueta">FAZ PARTE</span>
@@ -240,6 +253,7 @@
           Participa nas atividades da Associação de Estudantes e acompanha
           as iniciativas do Colégio Jancer.
         </p>
+
         <a
           class="botao botao-whatsapp"
           href="https://wa.me/244950383269?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20atividades%20da%20Associa%C3%A7%C3%A3o%20de%20Estudantes%20do%20Col%C3%A9gio%20Jancer."
@@ -251,21 +265,94 @@
       </div>
     </section>
 
+    
     <section class="comunicados secao" id="comunicados">
       <div class="comunicados-fundo" aria-hidden="true"></div>
+
       <div class="comunicados-conteudo">
         <span class="etiqueta">INFORMAÇÃO OFICIAL</span>
         <h2>Comunicados da <span>associação.</span></h2>
-        <p>
-          Consulta as informações e os avisos divulgados pela Associação
-          de Estudantes.
+        <p class="comunicados-introducao">
+          Acompanha os avisos e as informações oficiais da Associação de Estudantes.
         </p>
-        <a class="botao botao-principal" href="comunicados.html">
-          Consultar comunicados
-        </a>
+
+        <div
+          class="comunicados-painel"
+          role="region"
+          aria-label="Comunicados da Associação de Estudantes"
+        >
+          <div class="comunicados-janela">
+            <div class="comunicados-animacao">
+
+              
+              <div class="comunicados-grupo">
+                <article class="comunicado-item">
+                  <span class="comunicado-etiqueta">ASSOCIAÇÃO DE ESTUDANTES</span>
+                  <h3>Bem-vindos ao espaço de comunicados</h3>
+                  <p>
+                    Este espaço será utilizado para divulgar informações,
+                    avisos e novidades oficiais da Associação de Estudantes
+                    do Colégio Jancer.
+                  </p>
+                </article>
+
+                <article class="comunicado-item">
+                  <span class="comunicado-etiqueta">PARTICIPAÇÃO ESTUDANTIL</span>
+                  <h3>Acompanha as nossas iniciativas</h3>
+                  <p>
+                    Consulta regularmente esta secção para conhecer os
+                    comunicados publicados pela Associação de Estudantes.
+                  </p>
+                </article>
+
+                <article class="comunicado-item">
+                  <span class="comunicado-etiqueta">INFORMAÇÃO</span>
+                  <h3>Novos comunicados</h3>
+                  <p>
+                    Os avisos oficiais serão apresentados aqui à medida
+                    que forem publicados pela Associação.
+                  </p>
+                </article>
+              </div>
+
+              <!-- Cópia para permitir a repetição contínua da animação -->
+              <div class="comunicados-grupo" aria-hidden="true">
+                <article class="comunicado-item">
+                  <span class="comunicado-etiqueta">ASSOCIAÇÃO DE ESTUDANTES</span>
+                  <h3>Bem-vindos ao espaço de comunicados</h3>
+                  <p>
+                    Este espaço será utilizado para divulgar informações,
+                    avisos e novidades oficiais da Associação de Estudantes
+                    do Colégio Jancer.
+                  </p>
+                </article>
+
+                <article class="comunicado-item">
+                  <span class="comunicado-etiqueta">PARTICIPAÇÃO ESTUDANTIL</span>
+                  <h3>Acompanha as nossas iniciativas</h3>
+                  <p>
+                    Consulta regularmente esta secção para conhecer os
+                    comunicados publicados pela Associação de Estudantes.
+                  </p>
+                </article>
+
+                <article class="comunicado-item">
+                  <span class="comunicado-etiqueta">INFORMAÇÃO</span>
+                  <h3>Novos comunicados</h3>
+                  <p>
+                    Os avisos oficiais serão apresentados aqui à medida
+                    que forem publicados pela Associação.
+                  </p>
+                </article>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
         <p class="nota-comunicados">
-          Se a página de comunicados ainda não existir, cria o ficheiro
-          <code>comunicados.html</code> dentro da pasta <code>paginas</code>.
+          Os textos apresentados são exemplos e devem ser substituídos
+          pelos comunicados oficiais da Associação.
         </p>
       </div>
     </section>
@@ -306,22 +393,28 @@
           </label>
         </fieldset>
 
-        <button class="botao botao-principal" type="submit">Registar voto</button>
+        <button class="botao botao-principal" type="submit">
+          Registar voto
+        </button>
+
         <p class="aviso-votacao">
-          Esta votação guarda os resultados apenas neste navegador.
-          Não representa uma contagem centralizada de todos os estudantes.
+          Os resultados são guardados na base de dados e partilhados entre
+          os visitantes do site. A votação não limita a quantidade de votos
+          por pessoa.
         </p>
       </form>
 
       <div class="resultados-votacao" id="resultadosVotacao" hidden>
-        <h3>Resultados neste navegador</h3>
+        <h3>Resultados globais</h3>
 
         <div class="resultado-item" data-resultado="cultura">
           <div class="resultado-topo">
             <strong>Atividades culturais</strong>
             <span class="resultado-percentagem">0%</span>
           </div>
-          <div class="barra-resultado"><span class="barra-preenchimento"></span></div>
+          <div class="barra-resultado">
+            <span class="barra-preenchimento"></span>
+          </div>
           <span class="resultado-votos">0 votos</span>
         </div>
 
@@ -330,7 +423,9 @@
             <strong>Atividades desportivas</strong>
             <span class="resultado-percentagem">0%</span>
           </div>
-          <div class="barra-resultado"><span class="barra-preenchimento"></span></div>
+          <div class="barra-resultado">
+            <span class="barra-preenchimento"></span>
+          </div>
           <span class="resultado-votos">0 votos</span>
         </div>
 
@@ -339,13 +434,16 @@
             <strong>Iniciativas solidárias</strong>
             <span class="resultado-percentagem">0%</span>
           </div>
-          <div class="barra-resultado"><span class="barra-preenchimento"></span></div>
+          <div class="barra-resultado">
+            <span class="barra-preenchimento"></span>
+          </div>
           <span class="resultado-votos">0 votos</span>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- RODAPÉ -->
   <footer class="rodape">
     <div class="rodape-principal">
       <div class="rodape-marca">
@@ -383,6 +481,7 @@
     </div>
   </footer>
 
+  <!-- WHATSAPP FLUTUANTE -->
   <a
     class="whatsapp-float"
     href="https://wa.me/244950383269?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20atividades%20da%20Associa%C3%A7%C3%A3o%20de%20Estudantes."
