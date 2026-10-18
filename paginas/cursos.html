@@ -1,355 +1,820 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Cursos | Colégio Jancer</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eventos e atividades do Colégio Jancer.">
+    <title>Eventos | Colégio Jancer</title>
     <link rel="stylesheet" href="../style.css">
 
+    <style>
+        .cabecalho .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cabecalho .logo > a {
+            display: flex;
+            align-items: center;
+        }
+
+        .cabecalho .logo-jancer {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .cabecalho .logo-texto {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .cabecalho .logo-texto span {
+            font-size: 9px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        .cabecalho .logo-texto strong {
+            margin-top: 3px;
+            font-size: 18px;
+            color: #075BBD;
+            letter-spacing: 1px;
+        }
+
+        .pagina-eventos {
+            background: linear-gradient(180deg, #f7fbff 0%, #ffffff 45%, #f8fbff 100%);
+            padding-bottom: 80px;
+        }
+
+        .titulo-pagina {
+            text-align: center;
+            padding: 75px 20px 55px;
+            position: relative;
+        }
+
+        .titulo-pagina::after {
+            content: "";
+            width: 80px;
+            height: 4px;
+            background: #12D9E8;
+            display: block;
+            margin: 20px auto 0;
+            border-radius: 10px;
+        }
+
+        .titulo-pagina span {
+            display: inline-block;
+            color: #075BBD;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .titulo-pagina h1 {
+            margin: 0;
+            font-size: 48px;
+            color: #075BBD;
+            font-weight: 800;
+        }
+
+        .titulo-pagina p {
+            max-width: 650px;
+            margin: 15px auto 0;
+            color: #667085;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .eventos-lista {
+            width: min(1100px, 92%);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .evento-card {
+            display: flex;
+            align-items: stretch;
+            gap: 25px;
+            background: #fff;
+            border: 1px solid #e5edf5;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(7, 91, 189, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .evento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(7, 91, 189, 0.13);
+        }
+
+        .evento-data {
+            min-width: 105px;
+            width: 105px;
+            min-height: 115px;
+            border-radius: 17px;
+            background: linear-gradient(145deg, #075BBD, #0b7bd3);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(7, 91, 189, 0.20);
+        }
+
+        .evento-data strong {
+            font-size: 34px;
+            line-height: 1;
+            font-weight: 800;
+        }
+
+        .evento-data span {
+            margin-top: 8px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .evento-conteudo {
+            flex: 1;
+        }
+
+        .evento-tipo {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 30px;
+            background: #eaf6ff;
+            color: #075BBD;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .evento-conteudo h2 {
+            margin: 10px 0 8px;
+            color: #172b4d;
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .evento-conteudo p {
+            margin: 0;
+            color: #667085;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .evento-local {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 15px;
+            color: #075BBD;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .evento-local::before {
+            content: "●";
+            color: #12D9E8;
+            font-size: 11px;
+        }
+
+        .evento-destaque {
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #f5bfd8;
+            background: linear-gradient(135deg, #fff 0%, #fff8fb 100%);
+        }
+
+        /* Imagem de fundo do Outubro Rosa */
+        .evento-outubro-rosa {
+            background:
+                linear-gradient(
+                    rgba(255, 244, 249, 0.80),
+                    rgba(255, 244, 249, 0.80)
+                ),
+                url('../Outubro-rosa_Conversa-aberta-entre-meninas-MOCKU.png')
+                center / cover no-repeat;
+        }
+
+        .evento-outubro-rosa .evento-detalhe {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(2px);
+        }
+
+        .evento-outubro-rosa .evento-conteudo {
+            position: relative;
+            z-index: 1;
+        }
+
+        .evento-destaque::before {
+            content: "DESTAQUE";
+            position: absolute;
+            top: 18px;
+            right: -35px;
+            width: 145px;
+            text-align: center;
+            padding: 7px 0;
+            transform: rotate(45deg);
+            background: #e83e8c;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .evento-novembro {
+            border-color: #b9d7f5;
+            background: linear-gradient(135deg, #fff 0%, #f5faff 100%);
+        }
+
+        .evento-novembro::before {
+            background: #075BBD;
+        }
+
+        .evento-data-azul {
+            background: linear-gradient(145deg, #075BBD, #2f8fe5);
+            box-shadow: 0 8px 22px rgba(7, 91, 189, 0.22);
+        }
+
+        .evento-tipo-azul {
+            background: #e7f2ff;
+            color: #075BBD;
+        }
+
+        .evento-temas-azul .evento-tema {
+            background: #eaf4ff;
+            color: #075BBD;
+        }
+
+        .organizacao-azul {
+            border-top-color: #dbeaf8;
+        }
+
+        .organizacao-azul strong {
+            color: #173b62;
+        }
+
+        .evento-data-rosa {
+            background: linear-gradient(145deg, #d92b78, #f06aa5);
+            box-shadow: 0 8px 22px rgba(217, 43, 120, 0.22);
+        }
+
+        .evento-tipo-rosa {
+            background: #ffe8f2;
+            color: #c2185b;
+        }
+
+        .evento-detalhes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .evento-detalhe {
+            background: #fff;
+            border: 1px solid #f0dce5;
+            border-radius: 12px;
+            padding: 12px 14px;
+        }
+
+        .evento-detalhe small {
+            display: block;
+            color: #8b8f98;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            margin-bottom: 4px;
+        }
+
+        .evento-detalhe strong {
+            color: #4a1c31;
+            font-size: 13px;
+        }
+
+        .evento-temas {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .evento-tema {
+            padding: 7px 11px;
+            border-radius: 20px;
+            background: #fff0f6;
+            color: #a51d58;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .organizacao-evento {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid #f1dfe7;
+            color: #667085;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .organizacao-evento strong {
+            color: #4a1c31;
+        }
+
+        .eventos-info {
+            width: min(1000px, 92%);
+            margin: 60px auto 0;
+            padding: 40px;
+            text-align: center;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #075BBD, #06498f);
+            color: #fff;
+            box-shadow: 0 15px 35px rgba(7, 91, 189, 0.18);
+        }
+
+        .eventos-info h2 {
+            margin: 0 0 12px;
+            font-size: 27px;
+        }
+
+        .eventos-info p {
+            max-width: 650px;
+            margin: auto;
+            color: #e7f3ff;
+            line-height: 1.7;
+        }
+
+        /* Botão flutuante de inscrição pelo WhatsApp */
+        .whatsapp-evento-flutuante {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 9999;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            max-width: calc(100vw - 32px);
+            padding: 14px 20px;
+            border: 0;
+            border-radius: 999px;
+            background: #20c763;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .whatsapp-evento-flutuante:hover,
+        .whatsapp-evento-flutuante:focus-visible {
+            background: #159e4b;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-evento-flutuante svg {
+            width: 23px;
+            height: 23px;
+            flex: 0 0 23px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 800px) {
+            .titulo-pagina {
+                padding-top: 50px;
+            }
+
+            .titulo-pagina h1 {
+                font-size: 38px;
+            }
+
+            .evento-card {
+                flex-direction: column;
+            }
+
+            .evento-data {
+                width: 100%;
+                min-width: 100%;
+                min-height: 90px;
+            }
+
+            .evento-detalhes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .titulo-pagina h1 {
+                font-size: 32px;
+            }
+
+            .titulo-pagina p {
+                font-size: 15px;
+            }
+
+            .eventos-lista {
+                width: 94%;
+            }
+
+            .evento-card {
+                padding: 18px;
+                border-radius: 16px;
+            }
+
+            .evento-conteudo h2 {
+                font-size: 21px;
+            }
+
+            .evento-conteudo p {
+                font-size: 14px;
+            }
+
+            .evento-destaque::before {
+                font-size: 8px;
+                right: -40px;
+            }
+
+            .eventos-info {
+                padding: 30px 20px;
+            }
+
+            .eventos-info h2 {
+                font-size: 22px;
+            }
+
+            .whatsapp-evento-flutuante {
+                right: 12px;
+                bottom: 12px;
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="../index.html" aria-label="Página inicial do Colégio Jancer">
+                <img class="logo-jancer" src="../logo-jancer.png" alt="Logo do Colégio Jancer">
+            </a>
 
-    <div class="logo">
-
-        <a href="../index.html"
-           aria-label="Página inicial do Colégio Jancer">
-
-            <img
-                class="logo-jancer"
-                src="../logo-jancer.png"
-                alt="Logo do Colégio Jancer"
-            >
-
-        </a>
-
-        <div class="logo-texto">
-
-            <span>COLÉGIO</span>
-
-            <strong>JANCER</strong>
-
+            <div class="logo-texto">
+                <span>COLÉGIO</span>
+                <strong>JANCER</strong>
+            </div>
         </div>
 
-    </div>
+        <nav class="nav-principal">
+            <a href="../index.html">Início</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="vagas.html">Vagas</a>
+            <a href="eventos.html" class="ativo">Eventos</a>
+            <a href="quadro-honra.html">Quadro de Honra</a>
+            <a href="associacao.html">Associação de Estudantes</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="contactos.html">Contactos</a>
+        </nav>
+    </header>
 
-    <nav>
+    <main class="pagina-eventos">
 
-        <a href="../index.html">
-            Início
-        </a>
+        <section class="titulo-pagina">
+            <span>COLÉGIO JANCER</span>
+            <h1>Eventos</h1>
+            <p>
+                Acompanhe as principais atividades, projetos, encontros
+                e momentos especiais da comunidade escolar.
+            </p>
+        </section>
 
-        <a href="cursos.html">
-            Cursos
-        </a>
+        <section class="eventos-lista">
 
-        <a href="inscricao.html">
-            Inscrição
-        </a>
+            <!-- OUTUBRO ROSA -->
+            <article class="evento-card evento-destaque evento-outubro-rosa">
 
-        <a href="vagas.html">
-            Vagas
-        </a>
+                <div class="evento-data evento-data-rosa">
+                    <strong>30</strong>
+                    <span>OUTUBRO</span>
+                </div>
 
-        <a href="eventos.html">
-            Eventos
-        </a>
+                <div class="evento-conteudo">
+                    <span class="evento-tipo evento-tipo-rosa">OUTUBRO ROSA</span>
+                    <h2>“Entre Meninas”</h2>
 
-        <a href="alunos.html">
-            Alunos
-        </a>
+                    <p>
+                        Um espaço de conversa aberta e interativa destinado
+                        exclusivamente às alunas do Colégio Jancer.
+                    </p>
 
-        <a href="contactos.html">
-            Contactos
-        </a>
+                    <div class="evento-detalhes">
+                        <div class="evento-detalhe">
+                            <small>Data</small>
+                            <strong>30 de outubro de 2026</strong>
+                        </div>
 
-    </nav>
+                        <div class="evento-detalhe">
+                            <small>Público-alvo</small>
+                            <strong>Alunas do Colégio</strong>
+                        </div>
 
+                        <div class="evento-detalhe">
+                            <small>Duração</small>
+                            <strong>2 a 3 horas</strong>
+                        </div>
 
-    <a href="inscricao.html"
-       class="botao-inscricao">
+                        <div class="evento-detalhe">
+                            <small>Data do encontro</small>
+                            <strong>Sexta-feira, dia 30</strong>
+                        </div>
 
-        Fazer inscrição
+                        <div class="evento-detalhe">
+                            <small>Formato</small>
+                            <strong>Conversa aberta</strong>
+                        </div>
 
+                        <div class="evento-detalhe">
+                            <small>Local</small>
+                            <strong>Colégio Jancer</strong>
+                        </div>
+                    </div>
+
+                    <div class="evento-temas">
+                        <span class="evento-tema">Saúde e autocuidado</span>
+                        <span class="evento-tema">Adolescência</span>
+                        <span class="evento-tema">Autoestima</span>
+                        <span class="evento-tema">Higiene</span>
+                        <span class="evento-tema">Relações interpessoais</span>
+                        <span class="evento-tema">Prevenção</span>
+                    </div>
+
+                    <div class="organizacao-evento">
+                        <strong>Organização:</strong>
+                        As participantes serão distribuídas em grupos para
+                        proporcionar um ambiente mais confortável, participativo
+                        e reservado.
+                    </div>
+
+                    <span class="evento-local">Colégio Jancer</span>
+                </div>
+            </article>
+
+            <!-- NOVEMBRO AZUL -->
+            <article class="evento-card evento-destaque evento-novembro">
+
+                <div class="evento-data evento-data-azul">
+                    <strong>NOV</strong>
+                    <span>2 SÁBADOS</span>
+                </div>
+
+                <div class="evento-conteudo">
+                    <span class="evento-tipo evento-tipo-azul">NOVEMBRO AZUL</span>
+                    <h2>“Entre Homens”</h2>
+
+                    <p>
+                        Um espaço de conversa aberta e interativa destinado
+                        exclusivamente aos alunos do Colégio Jancer, com foco
+                        em saúde, autocuidado, prevenção e bem-estar masculino.
+                    </p>
+
+                    <div class="evento-detalhes">
+                        <div class="evento-detalhe">
+                            <small>Período</small>
+                            <strong>Novembro</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Público-alvo</small>
+                            <strong>Alunos do Colégio</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Duração</small>
+                            <strong>2 a 3 horas</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Sessões</small>
+                            <strong>2 sábados</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Formato</small>
+                            <strong>Conversa aberta</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Local</small>
+                            <strong>Colégio Jancer</strong>
+                        </div>
+                    </div>
+
+                    <div class="evento-temas evento-temas-azul">
+                        <span class="evento-tema">Saúde e autocuidado</span>
+                        <span class="evento-tema">Adolescência</span>
+                        <span class="evento-tema">Bem-estar</span>
+                        <span class="evento-tema">Higiene</span>
+                        <span class="evento-tema">Relações interpessoais</span>
+                        <span class="evento-tema">Prevenção</span>
+                    </div>
+
+                    <div class="organizacao-evento organizacao-azul">
+                        <strong>Organização:</strong>
+                        Os participantes serão distribuídos em grupos para
+                        proporcionar um ambiente mais confortável, participativo
+                        e reservado.
+                    </div>
+
+                    <span class="evento-local">Colégio Jancer</span>
+                </div>
+            </article>
+
+            <!-- CAMPANHA DE HIGIENIZAÇÃO -->
+            <article class="evento-card">
+                <div class="evento-data">
+                    <strong>II</strong>
+                    <span>TRIMESTRE</span>
+                </div>
+
+                <div class="evento-conteudo">
+                    <span class="evento-tipo">HIGIENIZAÇÃO</span>
+                    <h2>Campanha de Higienização</h2>
+
+                    <p>
+                        Campanha destinada à melhoria das condições de higiene
+                        no Colégio, com acompanhamento, aconselhamento aos alunos,
+                        limpeza e controlo diário.
+                    </p>
+
+                    <div class="evento-detalhes">
+                        <div class="evento-detalhe">
+                            <small>Período</small>
+                            <strong>II trimestre</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Fase 1</small>
+                            <strong>Levantamento das condições</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Fase 2</small>
+                            <strong>Aquisição dos materiais essenciais</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Fase 3</small>
+                            <strong>Limpeza e controlo diário</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Fase 4</small>
+                            <strong>Avaliação e reposição</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Público-alvo</small>
+                            <strong>Alunos do Colégio</strong>
+                        </div>
+                    </div>
+
+                    <div class="organizacao-evento">
+                        <strong>Organização:</strong>
+                        A associação funcionará como parceira da fiscalização,
+                        enquanto a Direcção mantém a responsabilidade administrativa
+                        e os responsáveis de higiene executam a limpeza.
+                    </div>
+
+                    <span class="evento-local">Colégio Jancer</span>
+                </div>
+            </article>
+
+            <!-- COMPETIÇÃO INTERTURMAS -->
+            <article class="evento-card">
+                <div class="evento-data">
+                    <strong>II</strong>
+                    <span>TRIMESTRE</span>
+                </div>
+
+                <div class="evento-conteudo">
+                    <span class="evento-tipo">INTERTURMAS</span>
+                    <h2>“Competição, Convivência e Espírito de Equipa”</h2>
+
+                    <p>
+                        Atividade destinada a criar oportunidades de convivência
+                        saudável entre estudantes de diferentes turmas e cursos,
+                        promovendo espírito de equipa, disciplina, respeito pelas
+                        regras, liderança e capacidade de trabalhar colectivamente.
+                    </p>
+
+                    <div class="evento-detalhes">
+                        <div class="evento-detalhe">
+                            <small>Período</small>
+                            <strong>II trimestre</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Público-alvo</small>
+                            <strong>Alunos das diferentes turmas</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Modalidade</small>
+                            <strong>Futebol</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Modalidade</small>
+                            <strong>Basquetebol</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Modalidade</small>
+                            <strong>Voleibol</strong>
+                        </div>
+
+                        <div class="evento-detalhe">
+                            <small>Modalidades</small>
+                            <strong>Xadrez, Dama e Quiz académico</strong>
+                        </div>
+                    </div>
+
+                    <div class="evento-temas">
+                        <span class="evento-tema">Futebol</span>
+                        <span class="evento-tema">Basquetebol</span>
+                        <span class="evento-tema">Voleibol</span>
+                        <span class="evento-tema">Xadrez</span>
+                        <span class="evento-tema">Dama</span>
+                        <span class="evento-tema">Quiz académico</span>
+                        <span class="evento-tema">Jogos recreativos</span>
+                        <span class="evento-tema">Outras modalidades aprovadas pela Direcção</span>
+                    </div>
+
+                    <span class="evento-local">Colégio Jancer</span>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="eventos-info">
+            <h2>Participe nas atividades do Colégio</h2>
+            <p>
+                Consulte regularmente esta página para acompanhar novos eventos,
+                atividades, encontros e iniciativas organizadas pelo Colégio Jancer.
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <div>
+            <h3>Colégio Jancer</h3>
+            <p>Educação, conhecimento e futuro.</p>
+        </div>
+
+        <div>
+            <h4>Links rápidos</h4>
+            <a href="cursos.html">Cursos</a>
+            <a href="vagas.html">Vagas</a>
+            <a href="contactos.html">Contactos</a>
+            <a href="associacao.html">Associação de Estudantes</a>
+        </div>
+
+        <div>
+            <h4>Redes sociais</h4>
+            <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+    </footer>
+
+    <!-- Botão flutuante de inscrição no evento -->
+    <a
+        class="whatsapp-evento-flutuante"
+        href="https://wa.me/2449250383279?text=Ol%C3%A1%21%20Quero%20inscrever-me%20no%20evento%20Outubro%20Rosa.%0A%0ANome%20completo%3A%20%0AIdade%3A%20%0AEstuda%3F%20(Sim%2FN%C3%A3o)%3A%20%0AEscola%3A%20%0AClasse%2Fcurso%3A%20%0APer%C3%ADodo%20conforme%20a%20idade%3A%20(15%20a%2019%20anos%3A%20tarde%3B%2014%20anos%20ou%20menos%3A%20manh%C3%A3)%0AT-shirt%3A%20(J%C3%A1%20paguei%2FQuero%20comprar%2FN%C3%A3o%20quero)%0ABilhete%20do%20evento%3A%20(J%C3%A1%20paguei%2FQuero%20comprar)%0AComprovativo%20de%20pagamento%20(se%20aplic%C3%A1vel)%3A%20"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Inscreva-se no evento pelo WhatsApp"
+    >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.52 3.48A11.8 11.8 0 0 0 12.13 0C5.58 0 .25 5.33.25 11.88c0 2.09.55 4.13 1.59 5.93L.15 24l6.35-1.66a11.9 11.9 0 0 0 5.63 1.43h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.17-1.23-6.15-3.5-8.41ZM12.14 21.75a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.77.99 1.01-3.68-.23-.38a9.82 9.82 0 0 1-1.51-5.21c0-5.45 4.44-9.89 9.9-9.89a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.9 7c0 5.45-4.44 9.89-9.9 9.89Zm5.43-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.09 4.49.71.31 1.27.5 1.7.64.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+        </svg>
+        Inscreva-se no evento
     </a>
 
-</header>
-
-<main>
-
-    <section class="cursos">
-
-        <h1>
-            Os nossos cursos
-        </h1>
-
-        <p class="subtitulo">
-
-            Conheça as formações disponíveis
-            no Colégio Jancer.
-
-        </p>
-
-        <div class="cursos-container">
-
-            <article class="curso">
-
-                <h3>
-                    Informática
-                </h3>
-
-                <p>
-
-                    Formação na área de informática
-                    e tecnologias, preparando os alunos
-                    para desenvolver conhecimentos técnicos
-                    e digitais.
-
-                </p>
-
-                <p>
-
-                    <strong>
-                        Área:
-                    </strong>
-
-                    Informática e Tecnologia
-
-                </p>
-
-                <div class="curso-botoes">
-
-                    <a href="inscricao.html?curso=informatica"
-                       class="botao-principal">
-
-                        Inscrever
-
-                    </a>
-
-                    <a href="vagas.html#informatica"
-                       class="botao-secundario">
-
-                        Ver vagas
-
-                    </a>
-
-                </div>
-
-            </article>
-
-            <article class="curso">
-
-                <h3>
-                    Ciências Físicas e Biológicas
-                </h3>
-
-                <p>
-
-                    Formação voltada para o estudo
-                    das ciências físicas e biológicas,
-                    promovendo conhecimentos científicos
-                    e preparação académica.
-
-                </p>
-
-                <p>
-
-                    <strong>
-                        Área:
-                    </strong>
-
-                    Ciências
-
-                </p>
-
-                <div class="curso-botoes">
-
-                    <a href="inscricao.html?curso=cfb"
-                       class="botao-principal">
-
-                        Inscrever
-
-                    </a>
-
-                    <a href="vagas.html#cfb"
-                       class="botao-secundario">
-
-                        Ver vagas
-
-                    </a>
-
-                </div>
-
-            </article>
-
-            <article class="curso">
-
-                <h3>
-                    Ciências Económicas e Jurídicas
-                </h3>
-
-                <p>
-
-                    Formação nas áreas económica
-                    e jurídica, proporcionando conhecimentos
-                    relacionados com economia, gestão
-                    e direito.
-
-                </p>
-
-                <p>
-
-                    <strong>
-                        Área:
-                    </strong>
-
-                    Economia e Direito
-
-                </p>
-
-                <div class="curso-botoes">
-
-                    <a href="inscricao.html?curso=cej"
-                       class="botao-principal">
-
-                        Inscrever
-
-                    </a>
-
-                    <a href="vagas.html#cej"
-                       class="botao-secundario">
-
-                        Ver vagas
-
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-        <div class="curso-informacao">
-
-            <h2>
-                Quer fazer parte do Colégio Jancer?
-            </h2>
-
-            <p>
-
-                Escolha o curso pretendido e faça
-                a sua inscrição online.
-
-            </p>
-
-            <a href="inscricao.html"
-               class="botao-principal">
-
-                Fazer inscrição online
-
-            </a>
-
-            <a href="vagas.html"
-               class="ver-mais">
-
-                Consultar todas as vagas →
-
-            </a>
-
-        </div>
-
-    </section>
-
-</main>
-
-<footer>
-
-    <div class="footer-conteudo">
-
-
-        <div>
-
-            <h3>
-                Colégio Jancer
-            </h3>
-
-            <p>
-                Educação, conhecimento e futuro.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Links rápidos
-            </h3>
-
-            <a href="../index.html">
-                Início
-            </a>
-
-            <a href="inscricao.html">
-                Inscrição
-            </a>
-
-            <a href="vagas.html">
-                Vagas
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Instituição
-            </h3>
-
-            <a href="sobre.html">
-                Sobre nós
-            </a>
-
-            <a href="eventos.html">
-                Eventos
-            </a>
-
-            <a href="contactos.html">
-                Contactos
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-final">
-
-        <p>
-
-            © 2026 Colégio Jancer.
-            Todos os direitos reservados a Rafael Araújo.
-
-        </p>
-
-        <p>
-            Luanda, Angola
-        </p>
-
-    </div>
-
-</footer>
-
-
-<script src="../script.js"></script>
-
+    <script src="../script.js"></script>
 </body>
 </html>

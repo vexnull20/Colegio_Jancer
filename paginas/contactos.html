@@ -1,50 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Contactos do Colégio Jancer - Luanda, Angola"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactos do Colégio Jancer - Luanda, Angola">
     <title>Contactos | Colégio Jancer</title>
-
     <link rel="stylesheet" href="../style.css">
 
     <style>
-
-        .pagina-contactos {
-            min-height: 100vh;
-            background:
-                linear-gradient(
-                    180deg,
-                    #f7fbff 0%,
-                    #ffffff 100%
-                );
+        * {
+            box-sizing: border-box;
         }
 
+        html,
+        body {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            overflow-x: clip;
+        }
+
+        .pagina-contactos {
+            width: 100%;
+            max-width: 100%;
+            min-height: 100vh;
+            overflow-x: clip;
+            background: linear-gradient(180deg, #f7fbff 0%, #fff 100%);
+        }
+
+        /* Cabeçalho e navegação */
+        .pagina-contactos header {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px;
+            padding: 15px 4%;
+            background: #fff;
+            box-shadow: 0 3px 15px rgba(7, 91, 189, 0.08);
+        }
+
+        .pagina-contactos .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .pagina-contactos .logo a {
+            display: flex;
+            align-items: center;
+        }
+
+        .pagina-contactos .logo-jancer {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .pagina-contactos .logo-texto {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .pagina-contactos .logo-texto span {
+            color: #666;
+            font-size: 9px;
+            letter-spacing: 1px;
+        }
+
+        .pagina-contactos .logo-texto strong {
+            margin-top: 5px;
+            color: #075BBD;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .pagina-contactos nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            max-width: 100%;
+            min-width: 0;
+        }
+
+        .pagina-contactos nav a {
+            color: #344054;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+            transition: color 0.2s ease;
+        }
+
+        .pagina-contactos nav a:hover,
+        .pagina-contactos nav a.ativo {
+            color: #075BBD;
+        }
+
+        .pagina-contactos .botao-inscricao {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 17px;
+            border-radius: 8px;
+            background: #075BBD;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pagina-contactos .botao-inscricao:hover {
+            background: #064d9e;
+        }
+
+        /* Apresentação */
         .contactos-hero {
+            width: 100%;
+            padding: 75px 20px 55px;
             text-align: center;
-            padding: 80px 20px 55px;
-            background:
-                linear-gradient(
-                    135deg,
-                    #075BBD,
-                    #0a76d8
-                );
-            color: #ffffff;
+            color: #fff;
+            background: linear-gradient(135deg, #075BBD, #0a76d8);
         }
 
         .contactos-hero h1 {
             margin: 0 0 15px;
-            font-size: 44px;
+            font-size: clamp(30px, 4vw, 44px);
             font-weight: 800;
         }
 
@@ -53,776 +141,417 @@
             margin: 0 auto;
             font-size: 17px;
             line-height: 1.7;
-            opacity: 0.95;
         }
 
+        /* Conteúdo */
         .contactos-container {
-            width: min(1150px, 92%);
+            width: min(1100px, 92%);
+            max-width: 100%;
             margin: 0 auto;
-            padding: 60px 0;
+            padding: 55px 0;
         }
 
         .contactos-cards {
             display: grid;
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-            margin-bottom: 45px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
         }
 
         .contacto-card {
-            background: #ffffff;
-
-            padding: 32px 25px;
-
+            min-width: 0;
+            padding: 30px 22px;
+            border: 1px solid rgba(7, 91, 189, 0.09);
             border-radius: 18px;
-
+            background: #fff;
             text-align: center;
-
-            box-shadow:
-                0 10px 30px
-                rgba(7, 91, 189, 0.10);
-
-            border: 1px solid
-                rgba(7, 91, 189, 0.08);
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(7, 91, 189, 0.09);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .contacto-card:hover {
-            transform: translateY(-6px);
-
-            box-shadow:
-                0 18px 40px
-                rgba(7, 91, 189, 0.16);
+            transform: translateY(-5px);
+            box-shadow: 0 18px 35px rgba(7, 91, 189, 0.14);
         }
 
         .contacto-icone {
-            width: 65px;
-            height: 65px;
-
-            margin: 0 auto 18px;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 18px;
             border-radius: 50%;
-
             background: #e8f8ff;
-
             color: #075BBD;
-
             font-size: 27px;
             font-weight: 700;
         }
 
         .contacto-card h2 {
-            margin-bottom: 12px;
-
+            margin: 0 0 12px;
             color: #075BBD;
-
             font-size: 21px;
         }
 
         .contacto-card p {
+            margin-bottom: 10px;
             color: #596579;
-
             line-height: 1.6;
-
-            margin-bottom: 8px;
+            overflow-wrap: anywhere;
         }
 
         .contacto-principal {
             color: #222 !important;
-
-            font-size: 18px;
-
+            font-size: 17px;
             font-weight: 700;
         }
 
-        .whatsapp-secretaria {
+        .whatsapp-secretaria,
+        .acao-secundaria {
             display: inline-flex;
-
             align-items: center;
             justify-content: center;
-
-            margin-top: 15px;
-
-            padding: 12px 20px;
-
-            background: #25D366;
-
-            color: #ffffff;
-
+            max-width: 100%;
+            margin-top: 12px;
+            padding: 12px 18px;
             border-radius: 9px;
-
+            background: #25D366;
+            color: #fff;
             text-decoration: none;
-
             font-size: 14px;
-
             font-weight: 700;
-
+            overflow-wrap: anywhere;
             transition: 0.3s ease;
         }
 
         .whatsapp-secretaria:hover {
             background: #1ebe5d;
-
-            transform: translateY(-2px);
-        }
-
-        .contacto-direto {
-            display: grid;
-
-            grid-template-columns:
-                1.2fr 0.8fr;
-
-            gap: 30px;
-
-            margin-bottom: 45px;
-        }
-
-        .contacto-mensagem,
-        .horario-card {
-            background: #ffffff;
-
-            padding: 35px;
-
-            border-radius: 18px;
-
-            box-shadow:
-                0 10px 30px
-                rgba(7, 91, 189, 0.08);
-
-            border: 1px solid
-                rgba(7, 91, 189, 0.08);
-        }
-
-        .contacto-mensagem h2,
-        .horario-card h2 {
-            color: #075BBD;
-
-            margin-bottom: 15px;
-
-            font-size: 26px;
-        }
-
-        .contacto-mensagem p,
-        .horario-card p {
-            color: #596579;
-
-            line-height: 1.7;
-        }
-
-        .contacto-acoes {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 14px;
-
-            margin-top: 25px;
-        }
-
-        .acao-principal,
-        .acao-secundaria {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 13px 21px;
-
-            border-radius: 9px;
-
-            text-decoration: none;
-
-            font-weight: 700;
-
-            transition: 0.3s ease;
-        }
-
-        .acao-principal {
-            background: #075BBD;
-
-            color: #ffffff;
-        }
-
-        .acao-principal:hover {
-            background: #064d9e;
-
             transform: translateY(-2px);
         }
 
         .acao-secundaria {
             background: #e9f8ff;
-
-            color: #075BBD;
-
             border: 1px solid #c9edff;
+            color: #075BBD;
         }
 
         .acao-secundaria:hover {
             background: #d8f3ff;
-
-            transform: translateY(-2px);
         }
 
-        .horario-lista {
-            list-style: none;
-
-            padding: 0;
-
-            margin: 20px 0 0;
-        }
-
-        .horario-lista li {
-            display: flex;
-
-            justify-content: space-between;
-
-            gap: 20px;
-
-            padding: 13px 0;
-
-            border-bottom:
-                1px solid #edf1f5;
-
-            color: #596579;
-        }
-
-        .horario-lista li:last-child {
-            border-bottom: none;
-        }
-
-        .horario-lista strong {
-            color: #222;
-        }
-
+        /* Redes sociais */
         .redes-contactos {
+            padding: 10px 0 45px;
             text-align: center;
-
-            padding: 20px 0 45px;
         }
 
         .redes-contactos h2 {
-            color: #075BBD;
-
             margin-bottom: 10px;
-
+            color: #075BBD;
             font-size: 27px;
         }
 
         .redes-contactos p {
-            color: #596579;
-
             margin-bottom: 25px;
+            color: #596579;
+            line-height: 1.7;
         }
 
         .redes-botoes {
             display: flex;
-
             justify-content: center;
-
             flex-wrap: wrap;
-
-            gap: 12px;
+            gap: 15px;
         }
 
         .rede-botao {
             display: inline-flex;
-
             align-items: center;
             justify-content: center;
-
-            min-width: 120px;
-
-            padding: 11px 18px;
-
+            min-width: 150px;
+            max-width: 100%;
+            padding: 13px 22px;
             border-radius: 9px;
-
             background: #075BBD;
-
-            color: #ffffff;
-
+            color: #fff;
             text-decoration: none;
-
-            font-size: 14px;
-
+            font-size: 15px;
             font-weight: 700;
-
             transition: 0.3s ease;
         }
 
         .rede-botao:hover {
             background: #064d9e;
-
             transform: translateY(-2px);
         }
 
+        .rede-instagram {
+            background: linear-gradient(135deg, #833ab4, #e1306c, #f77737);
+        }
+
+        .rede-instagram:hover {
+            background: linear-gradient(135deg, #6f279d, #c92359, #df6429);
+        }
+
+        .rede-tiktok {
+            background: #111;
+        }
+
+        .rede-tiktok:hover {
+            background: #303030;
+        }
+
+        /* Inscrição */
         .contactos-inscricao {
-            text-align: center;
-
-            padding: 50px 30px;
-
+            width: 100%;
+            padding: 45px 25px;
             border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #075BBD,
-                    #12D9E8
-                );
-
-            color: #ffffff;
+            background: linear-gradient(135deg, #075BBD, #12D9E8);
+            color: #fff;
+            text-align: center;
         }
 
         .contactos-inscricao h2 {
-            font-size: 30px;
-
             margin-bottom: 12px;
+            font-size: clamp(24px, 3vw, 30px);
         }
 
         .contactos-inscricao p {
             max-width: 650px;
-
             margin: 0 auto 25px;
-
             line-height: 1.7;
         }
 
         .contactos-inscricao .acao-principal {
-            background: #ffffff;
-
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 22px;
+            border-radius: 9px;
+            background: #fff;
             color: #075BBD;
+            text-decoration: none;
+            font-weight: 700;
         }
 
         .contactos-inscricao .acao-principal:hover {
             background: #f1faff;
         }
 
-        .logo-jancer {
-            width: 75px;
-
-            height: 75px;
-
-            object-fit: contain;
-
-            display: block;
+        /* Rodapé */
+        .pagina-contactos footer {
+            width: 100%;
+            max-width: 100%;
+            padding: 25px 4%;
+            text-align: center;
+            overflow-wrap: anywhere;
         }
 
+        .pagina-contactos footer p {
+            margin: 0;
+            line-height: 1.7;
+        }
 
-        @media (max-width: 850px) {
+        @media (max-width: 1000px) {
+            .pagina-contactos header {
+                justify-content: center;
+            }
+
+            .pagina-contactos nav {
+                width: 100%;
+            }
 
             .contactos-cards {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-
-            .contacto-direto {
-                grid-template-columns: 1fr;
-            }
-
-            .contactos-hero h1 {
-                font-size: 36px;
-            }
-
         }
 
+        @media (max-width: 650px) {
+            .pagina-contactos header {
+                padding: 15px 4%;
+            }
 
-        @media (max-width: 600px) {
+            .pagina-contactos nav {
+                gap: 12px;
+            }
 
-            .contactos-container {
-                width: 90%;
+            .pagina-contactos nav a {
+                font-size: 13px;
+            }
 
-                padding: 40px 0;
+            .pagina-contactos .botao-inscricao {
+                width: 100%;
             }
 
             .contactos-hero {
-                padding:
-                    60px 20px 45px;
-            }
-
-            .contactos-hero h1 {
-                font-size: 31px;
+                padding: 55px 18px 40px;
             }
 
             .contactos-hero p {
                 font-size: 15px;
             }
 
-            .contacto-mensagem,
-            .horario-card {
-                padding: 25px 20px;
+            .contactos-container {
+                width: 92%;
+                padding: 35px 0;
+            }
+
+            .contactos-cards {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 18px;
+            }
+
+            .contacto-card {
+                padding: 27px 20px;
+            }
+
+            .contacto-card:hover {
+                transform: none;
             }
 
             .contactos-inscricao {
-                padding: 40px 20px;
+                padding: 35px 18px;
             }
 
-            .contactos-inscricao h2 {
-                font-size: 25px;
+            .redes-contactos h2 {
+                font-size: 24px;
             }
 
-            .contacto-acoes {
-                flex-direction: column;
+            .rede-botao {
+                flex: 1 1 100%;
             }
-
-            .acao-principal,
-            .acao-secundaria {
-                width: 100%;
-            }
-
-            .horario-lista li {
-                flex-direction: column;
-
-                gap: 4px;
-            }
-
         }
-
     </style>
-
 </head>
 
-
 <body>
-
 <div class="pagina-contactos">
 
-<header>
-
-    <div class="logo">
-
-        <a href="../index.html">
-
-            <img
-                src="../logo-jancer.png"
-                alt="Colégio Jancer"
-                class="logo-jancer"
-            >
-
-        </a>
-
-        <div class="logo-texto">
-
-            <span>COLÉGIO</span>
-
-            <strong>JANCER</strong>
-
-        </div>
-
-    </div>
-
-
-    <nav>
-
-        <a href="../index.html">
-            Início
-        </a>
-
-        <a href="cursos.html">
-            Cursos
-        </a>
-
-        <a href="inscricao.html">
-            Inscrição
-        </a>
-
-        <a href="vagas.html">
-            Vagas
-        </a>
-
-        <a href="eventos.html">
-            Eventos
-        </a>
-
-        <a
-            href="contactos.html"
-            class="ativo"
-        >
-            Contactos
-        </a>
-
-    </nav>
-
-
-    <a
-        href="inscricao.html"
-        class="botao-inscricao"
-    >
-        Fazer inscrição
-    </a>
-
-</header>
-
-<section class="contactos-hero">
-
-    <h1>
-        Entre em Contacto
-    </h1>
-
-    <p>
-        Estamos disponíveis para esclarecer dúvidas,
-        fornecer informações e ajudar no processo de
-        inscrição no Colégio Jancer.
-    </p>
-
-</section>
-
-<main class="contactos-container">
-
-<section class="contactos-cards">
-
-
-    <!-- LOCALIZAÇÃO -->
-
-    <article class="contacto-card">
-
-        <div class="contacto-icone">
-            📍
-        </div>
-
-        <h2>
-            Localização
-        </h2>
-
-        <p class="contacto-principal">
-            Ingombo, Luanda, Angola
-        </p>
-
-        <p>
-            Visite as instalações do
-            Colégio Jancer.
-        </p>
-
-    </article>
-
-    <article class="contacto-card">
-
-        <div class="contacto-icone">
-            ☎
-        </div>
-
-        <h2>
-            Telefone
-        </h2>
-
-        <p class="contacto-principal">
-            +244 974 501 253
-        </p>
-
-        <p>
-            Contacte a Secretaria para
-            obter informações.
-        </p>
-
-        <a
-            href="tel:+244974501253"
-            class="acao-secundaria"
-        >
-            Ligar agora
-        </a>
-
-    </article>
-
-    <article class="contacto-card">
-
-        <div class="contacto-icone">
-            💬
-        </div>
-
-        <h2>
-            WhatsApp
-        </h2>
-
-        <p class="contacto-principal">
-            +244 974 501 253
-        </p>
-
-        <p>
-            Fale diretamente com a
-            Secretaria do Colégio Jancer.
-        </p>
-
-        <a
-            href="https://wa.me/244974501253"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="whatsapp-secretaria"
-        >
-            Falar com a Secretaria
-        </a>
-
-    </article>
-
-
-</section>
-
-
-<section class="contacto-direto">
-
-
-    <div class="contacto-mensagem">
-
-        <h2>
-            Precisa de informações?
-        </h2>
-
-        <p>
-            Para informações sobre matrículas,
-            inscrições, cursos, vagas, documentos
-            ou outros assuntos relacionados ao
-            Colégio Jancer, entre em contacto
-            diretamente com a nossa Secretaria.
-        </p>
-
-        <div class="contacto-acoes">
-
-            <a
-                href="https://wa.me/244974501253"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="acao-principal"
-            >
-                Falar no WhatsApp
+    <header>
+        <div class="logo">
+            <a href="../index.html" aria-label="Página inicial do Colégio Jancer">
+                <img
+                    src="../logo-jancer.png"
+                    alt="Logo do Colégio Jancer"
+                    class="logo-jancer"
+                >
             </a>
 
-            <a
-                href="tel:+244974501253"
-                class="acao-secundaria"
-            >
-                Ligar para a Secretaria
-            </a>
-
+            <div class="logo-texto">
+                <span>COLÉGIO</span>
+                <strong>JANCER</strong>
+            </div>
         </div>
 
-    </div>
+        <nav aria-label="Navegação principal">
+            <a href="../index.html">Início</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="inscricao.html">Inscrição</a>
+            <a href="vagas.html">Vagas</a>
+            <a href="eventos.html">Eventos</a>
+            <a href="associacao.html">Associação de Estudantes</a>
+            <a href="contactos.html" class="ativo">Contactos</a>
+        </nav>
 
+        <a href="inscricao.html" class="botao-inscricao">
+            Fazer inscrição
+        </a>
+    </header>
 
-
-    <div class="horario-card">
-
-        <h2>
-            Horário de atendimento
-        </h2>
-
+    <section class="contactos-hero">
+        <h1>Entre em Contacto</h1>
         <p>
-            Consulte os horários para entrar
-            em contacto com a Secretaria.
+            Estamos disponíveis para esclarecer dúvidas, fornecer informações
+            e ajudar no processo de inscrição no Colégio Jancer.
         </p>
+    </section>
 
-        <ul class="horario-lista">
+    <main class="contactos-container">
 
-            <li>
-                <strong>Segunda a Sexta</strong>
-                <span>08:00 – 15:00</span>
-            </li>
+        <section class="contactos-cards" aria-label="Informações de contacto">
 
-            <li>
-                <strong>Sábado</strong>
-                <span>Encerrado</span>
-            </li>
+            <article class="contacto-card">
+                <div class="contacto-icone" aria-hidden="true">📍</div>
+                <h2>Localização</h2>
+                <p class="contacto-principal">Ingombota, Luanda, Angola</p>
+                <p>Visite as instalações do Colégio Jancer.</p>
+            </article>
 
-            <li>
-                <strong>Domingo</strong>
-                <span>Encerrado</span>
-            </li>
+            <article class="contacto-card">
+                <div class="contacto-icone" aria-hidden="true">☎</div>
+                <h2>Telefone</h2>
+                <p class="contacto-principal">+244 974 501 253</p>
+                <p>Contacte a Secretaria para obter informações.</p>
+                <a href="tel:+244974501253" class="acao-secundaria">
+                    Ligar agora
+                </a>
+            </article>
 
-        </ul>
+            <article class="contacto-card">
+                <div class="contacto-icone" aria-hidden="true">💬</div>
+                <h2>WhatsApp</h2>
+                <p class="contacto-principal">+244 974 501 253</p>
+                <p>Fale diretamente com a Secretaria do Colégio Jancer.</p>
+                <a
+                    href="https://wa.me/244974501253"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="whatsapp-secretaria"
+                >
+                    Falar com a Secretaria
+                </a>
+            </article>
 
-    </div>
+        </section>
 
+        <section class="redes-contactos">
+            <h2>Redes sociais da Associação</h2>
+            <p>
+                Acompanhe as atividades, os eventos e as novidades
+                da Associação de Estudantes do Colégio Jancer.
+            </p>
 
-</section>
+            <div class="redes-botoes">
+                <a
+                    href="https://www.instagram.com/asso.ciacaodosestudantes?exln=MTQ1N3MxZzRzMDg5cA=="
+                    class="rede-botao rede-instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Instagram
+                </a>
 
-<section class="redes-contactos">
+                <a
+                    href="https://www.tiktok.com/@cj_ass0?_r=1&_t=ZS-9Abbp0x8SbU"
+                    class="rede-botao rede-tiktok"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    TikTok
+                </a>
+            </div>
+        </section>
 
-    <h2>
-        Redes sociais
-    </h2>
+        <section class="contactos-inscricao">
+            <h2>Quer estudar no Colégio Jancer?</h2>
+            <p>
+                Consulte os cursos disponíveis e faça a sua inscrição
+                através da nossa página de inscrição.
+            </p>
+            <a href="inscricao.html" class="acao-principal">
+                Fazer inscrição
+            </a>
+        </section>
 
-    <p>
-        Acompanhe as novidades, atividades e
-        acontecimentos do Colégio Jancer.
-    </p>
+    </main>
 
-
-    <div class="redes-botoes">
-
-        <a
-            href="#"
-            class="rede-botao"
-        >
-            Facebook
-        </a>
-
-        <a
-            href="#"
-            class="rede-botao"
-        >
-            Instagram
-        </a>
-
-        <a
-            href="#"
-            class="rede-botao"
-        >
-            TikTok
-        </a>
-
-        <a
-            href="https://wa.me/244974501253"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="rede-botao"
-        >
-            WhatsApp
-        </a>
-
-    </div>
-
-</section>
-
-<section class="contactos-inscricao">
-
-    <h2>
-        Quer estudar no Colégio Jancer?
-    </h2>
-
-    <p>
-        Consulte os cursos disponíveis e faça
-        a sua inscrição através da nossa página
-        de inscrição.
-    </p>
-
-    <a
-        href="inscricao.html"
-        class="acao-principal"
-    >
-        Fazer inscrição
-    </a>
-
-</section>
-
-
-</main>
-
-<footer>
-
-    <p>
-        © 2026 Colégio Jancer.
-        Todos os direitos reservados a Rafael Araújo.
-    </p>
-
-</footer>
-
+    <footer>
+        <p>
+            © 2026 Colégio Jancer. Todos os direitos reservados.
+        </p>
+    </footer>
 
 </div>
-
-
 </body>
 </html>
