@@ -3836,3 +3836,216 @@ footer {
         margin: 32px 0;
     }
 }
+
+
+
+body {
+    background: #F7F8F5;
+    color: #252925;
+}
+
+.site-header,
+header {
+    background: #ffffff;
+    border-bottom: 2px solid #D8B45A;
+}
+
+.navegacao-principal a:hover,
+header nav a:hover {
+    color: #176B45;
+}
+
+.navegacao-principal a::after,
+header nav a::after {
+    background: #D8B45A;
+}
+
+.botao-principal,
+.botao-inscricao {
+    background: #176B45;
+    border-color: #176B45;
+    color: #ffffff;
+}
+
+.botao-principal:hover,
+.botao-inscricao:hover {
+    background: #104B32;
+    border-color: #104B32;
+}
+
+.botao-secundario {
+    background: #ffffff;
+    color: #176B45;
+    border-color: #176B45;
+}
+
+.botao-secundario:hover {
+    background: #176B45;
+    color: #ffffff;
+}
+
+.hero {
+    background: linear-gradient(135deg, #ffffff 0%, #EAF3ED 100%);
+}
+
+.hero h1,
+.hero h1 span,
+.hero-etiqueta,
+.secao-etiqueta,
+.logo-texto span,
+.logo-texto strong {
+    color: #176B45;
+}
+
+.hero-placeholder {
+    background: linear-gradient(145deg, #104B32, #176B45);
+    box-shadow: 0 20px 50px rgba(16, 75, 50, 0.2);
+}
+
+.destaque strong,
+.curso h3,
+.ver-mais,
+.contacto h3,
+.formulario h2,
+.titulo-feed h1,
+.perfil-aluno h3,
+.conteudo-publicacao h3,
+.conversa h3,
+.caixa-aluno h3,
+.titulo-pagina h1,
+.introducao-honra h1,
+.honra-resumo-item strong {
+    color: #176B45;
+}
+
+.curso-numero,
+.secao-vagas .secao-etiqueta,
+.area-alunos .secao-etiqueta,
+.titulo-pagina span,
+.introducao-honra span {
+    color: #D8B45A;
+}
+
+.secao-vagas,
+.area-alunos {
+    background: linear-gradient(135deg, #104B32, #176B45);
+}
+
+.secao-vagas .botao-principal,
+.area-alunos .botao-principal {
+    background: #ffffff;
+    color: #176B45;
+    border-color: #ffffff;
+}
+
+.evento-data,
+.avatar-aluno,
+.mini-avatar,
+.curso-honra,
+.honra-acoes a {
+    background: #176B45;
+    color: #ffffff;
+}
+
+.evento-tipo,
+.icone-curso {
+    background: #EAF3ED;
+    color: #176B45;
+}
+
+.evento-tipo {
+    border-radius: 5px;
+}
+
+.honra,
+.sugestoes,
+.pagina-eventos,
+.pagina-honra,
+.pagina-alunos,
+.pagina-pais {
+    background: #F7F8F5;
+}
+
+.form-sugestao input:focus,
+.form-sugestao textarea:focus,
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus,
+.campo-publicacao textarea:focus,
+.novo-comentario input:focus,
+.campo-chat input:focus {
+    border-color: #176B45;
+}
+
+.redes-botoes a,
+.botao-conversar,
+.conversa button {
+    border-color: #176B45;
+    color: #176B45;
+}
+
+.redes-botoes a:hover,
+.botao-conversar:hover {
+    background: #176B45;
+    color: #ffffff;
+}
+
+.menu-interno a:hover,
+.menu-pais-links a:hover,
+.acoes-post button:hover,
+.opcoes-publicacao button:hover {
+    background: #EAF3ED;
+    color: #176B45;
+}
+
+.avatar-associacao,
+.avatar-conversa,
+.avatar-educando,
+.avatar-professor {
+    background: #EAF3ED;
+    color: #176B45;
+}
+
+.avatar-professor.director {
+    background: #176B45;
+    color: #ffffff;
+}
+
+.campo-chat button,
+.novo-comentario button {
+    background: #176B45;
+    color: #ffffff;
+}
+
+.mensagem.enviada {
+    background: #176B45;
+    color: #ffffff;
+}
+
+footer {
+    background: #104B32;
+}
+
+.footer-conteudo h3,
+.footer-conteudo a:hover {
+    color: #D8B45A;
+}
+
+.status-vaga {
+    background: #EAF3ED;
+    color: #176B45;
+}
+
+.curso-honra {
+    box-shadow: 0 6px 20px rgba(16, 75, 50, 0.2);
+}
+
+.whatsapp-secretaria {
+    background: #25D366;
+    color: #ffffff;
+}
+
+.evento-card.evento-outubro-rosa .evento-data {
+    background: #D63384;
+    color: #ffffff;
+}
