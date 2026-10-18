@@ -3772,3 +3772,67 @@ footer {
     color: #8a174c;
     background: rgba(255, 255, 255, 0.88);
 }
+
+
+/* Organização dos níveis de ensino na página de cursos */
+
+.grupo-cursos {
+    margin: 45px 0;
+}
+
+.titulo-nivel {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 15px;
+    padding: 14px 24px;
+    background: var(--azul, #075BBD);
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.descricao-nivel {
+    margin: 0 auto 25px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.grupo-cursos .cursos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.grupo-cursos .curso {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.grupo-cursos .curso h3 {
+    color: var(--azul, #075BBD);
+}
+
+.grupo-cursos .curso-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .titulo-nivel {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1.1rem;
+        padding: 13px 10px;
+    }
+
+    .grupo-cursos {
+        margin: 32px 0;
+    }
+}
