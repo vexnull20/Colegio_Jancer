@@ -1705,3 +1705,68 @@ nav a.nav-ativo {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* LOGÓTIPO DENTRO DO QUADRADO AZUL */
+.sobre-logo {
+  display: block;
+  width: 150px;
+  height: 150px;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.25));
+}
+
+.sobre-moldura .sobre-linha {
+  margin: 25px auto;
+}
+
+/* FUNDO DA CAPA PRINCIPAL */
+.hero-fundo {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 7, 13, 0.97) 0%,
+      rgba(4, 7, 13, 0.85) 42%,
+      rgba(4, 7, 13, 0.38) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(4, 7, 13, 0.85),
+      rgba(4, 7, 13, 0.1)
+    ),
+    url("../biblioteca.png.jpg") center 48% / cover no-repeat;
+}
+
+/* FUNDO DE TODA A SECÇÃO DA GALERIA */
+.biblioteca-fundo {
+  z-index: -2;
+  background: url("../biblioteca.png.jpg") center / cover no-repeat;
+  transform: scale(1.03);
+}
+
+/* FUNDO DO QUADRO DE COMUNICADOS */
+.comunicados-fundo {
+  z-index: -2;
+  background: url("../biblioteca.png.jpg") center / cover no-repeat;
+  filter: grayscale(1);
+}
+
+/* FUNDO DA CAPA EM TELEMÓVEIS */
+@media (max-width: 600px) {
+  .hero-fundo {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4, 7, 13, 0.94),
+        rgba(4, 7, 13, 0.76)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(4, 7, 13, 0.65),
+        transparent
+      ),
+      url("../biblioteca.png.jpg") center / cover no-repeat;
+  }
+}

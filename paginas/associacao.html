@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b12">
 
   <title>Associação dos Estudantes | Colégio Jancer</title>
 
@@ -10,8 +12,6 @@
     name="description"
     content="Página oficial da Associação dos Estudantes do Colégio Jancer. Conhece as nossas atividades, galerias, comunicados e iniciativas."
   >
-
-  <meta name="theme-color" content="#080b12">
 
   <link rel="stylesheet" href="associacao.css">
   <script src="associacao.js" defer></script>
@@ -67,7 +67,6 @@
 
     <!-- CAPA PRINCIPAL -->
     <section class="hero" id="inicio">
-
       <div class="hero-fundo" aria-hidden="true"></div>
 
       <div class="hero-conteudo">
@@ -103,11 +102,10 @@
       </div>
 
       <div class="hero-numero" aria-hidden="true">CJ / AE</div>
-
     </section>
 
 
-    <!-- SOBRE A ASSOCIAÇÃO -->
+    <!-- QUEM SOMOS -->
     <section class="sobre secao" id="sobre">
 
       <div class="sobre-texto">
@@ -137,19 +135,29 @@
         </a>
       </div>
 
+      <!-- LOGÓTIPO DA ASSOCIAÇÃO NO QUADRADO AZUL -->
       <div class="sobre-destaque">
         <div class="sobre-moldura">
-          <span class="sobre-simbolo">CJ</span>
+
+          <img
+            class="sobre-logo"
+            src="../LOGO%20acossia%C3%A7%C3%A3o%20dos%20estudantes%20do%20jancer%20OFICIAL.png"
+            alt="Logótipo oficial da Associação dos Estudantes"
+            loading="lazy"
+          >
+
           <span class="sobre-linha"></span>
+
           <p>ASSOCIAÇÃO DOS ESTUDANTES</p>
           <strong>COLÉGIO JANCER</strong>
+
         </div>
       </div>
 
     </section>
 
 
-    <!-- OBJETIVOS -->
+    <!-- O QUE NOS MOVE -->
     <section class="objetivos secao" id="objetivos">
 
       <div class="cabecalho-secao">
@@ -168,7 +176,9 @@
         <article class="objetivo-cartao">
           <span class="objetivo-numero">01</span>
           <div class="objetivo-icone" aria-hidden="true">↗</div>
+
           <h3>Participação</h3>
+
           <p>
             Incentivar os estudantes a participar nas decisões,
             atividades e iniciativas da comunidade escolar.
@@ -178,7 +188,9 @@
         <article class="objetivo-cartao">
           <span class="objetivo-numero">02</span>
           <div class="objetivo-icone" aria-hidden="true">◎</div>
+
           <h3>União</h3>
+
           <p>
             Promover o respeito, a cooperação e o diálogo entre
             estudantes, professores e restantes membros da escola.
@@ -188,7 +200,9 @@
         <article class="objetivo-cartao">
           <span class="objetivo-numero">03</span>
           <div class="objetivo-icone" aria-hidden="true">✳</div>
+
           <h3>Desenvolvimento</h3>
+
           <p>
             Apoiar iniciativas educativas, culturais, desportivas
             e sociais que beneficiem os estudantes.
@@ -199,7 +213,7 @@
     </section>
 
 
-    <!-- BIBLIOTECA E GALERIA -->
+    <!-- GALERIA COM FUNDO DE BIBLIOTECA -->
     <section class="biblioteca" id="galeria">
 
       <div class="biblioteca-fundo" aria-hidden="true"></div>
@@ -221,10 +235,12 @@
 
         <div class="categorias-galeria">
 
+          <!-- GALERIA GERAL -->
           <a class="categoria-galeria" href="#galeria-geral">
+
             <img
-              src="../biblioteca.png"
-              alt="Imagem da biblioteca do Colégio Jancer"
+              src="../biblioteca.png.jpg"
+              alt="Biblioteca do Colégio Jancer"
               loading="lazy"
             >
 
@@ -232,16 +248,21 @@
 
             <span class="categoria-conteudo">
               <small>01 / ESPAÇOS E MOMENTOS</small>
+
               <strong>Galeria Geral do Colégio</strong>
+
               <span class="categoria-link">
                 Explorar galeria <span aria-hidden="true">↗</span>
               </span>
             </span>
+
           </a>
 
+          <!-- EVENTOS DA ASSOCIAÇÃO -->
           <a class="categoria-galeria" href="#eventos-associacao">
+
             <img
-              src="../image1.png"
+              src="../image1.png.jpeg"
               alt="Fotografia da Associação dos Estudantes"
               loading="lazy"
             >
@@ -250,20 +271,22 @@
 
             <span class="categoria-conteudo">
               <small>02 / PARTICIPAÇÃO ESTUDANTIL</small>
+
               <strong>Eventos da Associação</strong>
+
               <span class="categoria-link">
                 Ver atividades <span aria-hidden="true">↗</span>
               </span>
             </span>
+
           </a>
 
         </div>
-
       </div>
     </section>
 
 
-    <!-- GALERIA GERAL -->
+    <!-- GALERIA GERAL DO COLÉGIO -->
     <section class="galeria-geral secao" id="galeria-geral">
 
       <div class="cabecalho-secao">
@@ -278,8 +301,9 @@
       </div>
 
       <figure class="fotografia-geral">
+
         <img
-          src="../biblioteca.png"
+          src="../biblioteca.png.jpg"
           alt="Biblioteca do Colégio Jancer"
           loading="lazy"
         >
@@ -288,13 +312,17 @@
           <span>COLÉGIO JANCER</span>
           <strong>Conhecimento, aprendizagem e futuro.</strong>
         </figcaption>
+
       </figure>
 
     </section>
 
 
-    <!-- SLIDE DA ASSOCIAÇÃO -->
-    <section class="slide-associacao secao" id="eventos-associacao">
+    <!-- CARROSSEL: EVENTOS DA ASSOCIAÇÃO -->
+    <section
+      class="slide-associacao secao"
+      id="eventos-associacao"
+    >
 
       <div class="cabecalho-secao">
         <div>
@@ -313,10 +341,11 @@
 
           <figure class="slide-item ativo">
             <img
-              src="../image1.png"
+              src="../image1.png.jpeg"
               alt="Primeira fotografia da Associação dos Estudantes"
               loading="lazy"
             >
+
             <figcaption>
               <span>ASSOCIAÇÃO DOS ESTUDANTES</span>
               <strong>A nossa comunidade em destaque</strong>
@@ -325,10 +354,11 @@
 
           <figure class="slide-item">
             <img
-              src="../image2.png"
+              src="../image2.png.jpeg"
               alt="Segunda fotografia da Associação dos Estudantes"
               loading="lazy"
             >
+
             <figcaption>
               <span>COLÉGIO JANCER</span>
               <strong>Participação e vida estudantil</strong>
@@ -339,7 +369,10 @@
 
         <div class="slide-controlos">
 
-          <div class="slide-pontos" aria-label="Selecionar fotografia">
+          <div
+            class="slide-pontos"
+            aria-label="Selecionar fotografia"
+          >
             <button
               class="slide-ponto ativo"
               type="button"
@@ -374,13 +407,11 @@
           </div>
 
         </div>
-
       </div>
-
     </section>
 
 
-    <!-- SECÇÃO DE ATIVIDADES -->
+    <!-- PARTICIPAÇÃO NOS EVENTOS -->
     <section class="participacao secao" id="eventos">
 
       <div class="participacao-caixa">
@@ -417,7 +448,6 @@
         </div>
 
       </div>
-
     </section>
 
 
@@ -465,12 +495,11 @@
           </a>
 
         </div>
-
       </div>
     </section>
 
 
-    <!-- VOTAÇÃO -->
+    <!-- VOTAÇÃO DOS ESTUDANTES -->
     <section class="votacao secao" id="votacao">
 
       <div class="votacao-intro">
@@ -498,11 +527,14 @@
                 value="cultura"
                 required
               >
+
               <span class="opcao-numero">01</span>
+
               <span class="opcao-descricao">
                 <strong>Mais atividades culturais</strong>
                 <small>Concursos, arte, música e talento.</small>
               </span>
+
               <span class="opcao-selecionar">Selecionar</span>
             </label>
 
@@ -513,11 +545,14 @@
                 value="desporto"
                 required
               >
+
               <span class="opcao-numero">02</span>
+
               <span class="opcao-descricao">
                 <strong>Mais atividades desportivas</strong>
                 <small>Jogos, torneios e desafios entre turmas.</small>
               </span>
+
               <span class="opcao-selecionar">Selecionar</span>
             </label>
 
@@ -528,17 +563,23 @@
                 value="solidariedade"
                 required
               >
+
               <span class="opcao-numero">03</span>
+
               <span class="opcao-descricao">
                 <strong>Mais projetos solidários</strong>
                 <small>Campanhas de apoio e iniciativas comunitárias.</small>
               </span>
+
               <span class="opcao-selecionar">Selecionar</span>
             </label>
 
           </fieldset>
 
-          <button class="botao botao-azul botao-votar" type="submit">
+          <button
+            class="botao botao-azul botao-votar"
+            type="submit"
+          >
             Registar o meu voto
           </button>
 
@@ -557,9 +598,11 @@
               <span>Atividades culturais</span>
               <strong class="resultado-percentagem">0%</strong>
             </div>
+
             <div class="barra-resultado">
               <span class="barra-preenchimento"></span>
             </div>
+
             <small class="resultado-votos">0 votos</small>
           </div>
 
@@ -568,9 +611,11 @@
               <span>Atividades desportivas</span>
               <strong class="resultado-percentagem">0%</strong>
             </div>
+
             <div class="barra-resultado">
               <span class="barra-preenchimento"></span>
             </div>
+
             <small class="resultado-votos">0 votos</small>
           </div>
 
@@ -579,9 +624,11 @@
               <span>Projetos solidários</span>
               <strong class="resultado-percentagem">0%</strong>
             </div>
+
             <div class="barra-resultado">
               <span class="barra-preenchimento"></span>
             </div>
+
             <small class="resultado-votos">0 votos</small>
           </div>
 
@@ -603,7 +650,10 @@
     <div class="rodape-conteudo">
 
       <div class="rodape-marca">
-        <a href="../index.html" aria-label="Página principal do Colégio Jancer">
+        <a
+          href="../index.html"
+          aria-label="Página principal do Colégio Jancer"
+        >
           <img
             src="../LOGO%20acossia%C3%A7%C3%A3o%20dos%20estudantes%20do%20jancer%20OFICIAL.png"
             alt="Associação dos Estudantes do Colégio Jancer"
@@ -623,12 +673,14 @@
         <a href="inscricao.html">Inscrição</a>
         <a href="vagas.html">Vagas</a>
         <a href="eventos.html">Eventos</a>
+        <a href="associacao.html">Associação</a>
         <a href="contactos.html">Contactos</a>
       </div>
 
       <div class="rodape-links">
         <h3>Associação</h3>
-        <a href="#sobre">Sobre nós</a>
+        <a href="#sobre">Quem somos</a>
+        <a href="#objetivos">O que nos move</a>
         <a href="#galeria">Galeria</a>
         <a href="#comunicados">Comunicados</a>
         <a href="#votacao">Votação</a>
@@ -642,25 +694,19 @@
           href="https://www.instagram.com/asso.ciacaodosestudantes?exln=MTQ1N3MxZzRzMDg5cA=="
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Instagram
-        </a>
+        >Instagram</a>
 
         <a
           href="https://www.tiktok.com/@cj_ass0?_r=1&_t=ZS-9Abbp0x8SbU"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          TikTok
-        </a>
+        >TikTok</a>
 
         <a
           href="https://wa.me/244950383269"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          WhatsApp
-        </a>
+        >WhatsApp</a>
       </div>
 
     </div>
