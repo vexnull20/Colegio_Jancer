@@ -1,514 +1,691 @@
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-AO">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Colégio Jancer - Educação, conhecimento e futuro em Luanda, Ingombota.">
-    <title>Colégio Jancer | Início</title>
+
+    <title>Colégio Jancer | Educação, Conhecimento e Futuro</title>
+
+    <meta
+        name="description"
+        content="Colégio Jancer - Educação, conhecimento e futuro em Luanda, Ingombota."
+    >
+
+    <meta name="theme-color" content="#075BBD">
+
+    <link rel="icon" href="logo-jancer.png" type="image/png">
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        .whatsapp-btn {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            z-index: 9999;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 13px 18px;
-            border-radius: 999px;
-            background: #25D366;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 8px 24px rgba(0,0,0,.20);
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
-
-        .whatsapp-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(0,0,0,.25);
-        }
-
-        .whatsapp-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: #fff;
-            color: #25D366;
-            font-size: 13px;
-        }
-
-        @media (max-width: 600px) {
-            .whatsapp-btn {
-                right: 14px;
-                bottom: 14px;
-                padding: 12px 15px;
-                font-size: 14px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-<header class="site-header">
-    <div class="logo">
-        <a href="index.html" aria-label="Página inicial do Colégio Jancer">
-            <img class="logo-jancer" src="logo-jancer.png" alt="Logo do Colégio Jancer">
-        </a>
+    <!-- CABEÇALHO E NAVEGAÇÃO -->
+    <header class="header">
+        <div class="container header-container">
 
-        <div class="logo-texto">
-            <span>COLÉGIO</span>
-            <strong>JANCER</strong>
-        </div>
-    </div>
-
-    <nav class="navegacao-principal" aria-label="Navegação principal">
-        <a href="index.html">Início</a>
-        <a href="paginas/cursos.html">Cursos</a>
-        <a href="paginas/inscricao.html">Inscrição</a>
-        <a href="paginas/vagas.html">Vagas</a>
-        <a href="paginas/eventos.html">Eventos</a>
-        <a href="paginas/sobre.html">Sobre nós</a>
-        <a href="paginas/contactos.html">Contactos</a>
-        <a href="paginas/associacao.html">Associação de Estudantes</a>
-    </nav>
-
-    <a href="paginas/inscricao.html" class="botao-inscricao">
-        Fazer inscrição
-    </a>
-</header>
-
-<main>
-
-    <section class="hero">
-        <div class="hero-texto">
-            <span class="hero-etiqueta">COLÉGIO JANCER</span>
-
-            <h1>
-                Educação que prepara
-                <span>o futuro.</span>
-            </h1>
-
-            <p>
-                Bem-vindo ao Colégio Jancer.
-                Um espaço dedicado à educação,
-                conhecimento e desenvolvimento
-                dos nossos alunos.
-            </p>
-
-            <div class="hero-botoes">
-                <a href="paginas/inscricao.html" class="botao-principal">
-                    Fazer inscrição
-                </a>
-
-                <a href="paginas/cursos.html" class="botao-secundario">
-                    Ver cursos
-                </a>
-            </div>
-        </div>
-
-        <div class="hero-imagem">
-            <div class="hero-placeholder">
-                <div class="hero-logo-pequeno">
-                    <img src="logo-jancer.png" alt="Logo do Colégio Jancer" class="hero-logo">
-                </div>
-
-                <h2>COLÉGIO JANCER</h2>
-                <p>Educação • Conhecimento • Futuro</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="destaques">
-        <div class="destaque">
-            <strong>3</strong>
-            <p>Cursos disponíveis</p>
-        </div>
-
-        <div class="destaque">
-            <strong>Online</strong>
-            <p>Inscrição à distância</p>
-        </div>
-
-        <div class="destaque">
-            <strong>2026/2027</strong>
-            <p>Ano letivo</p>
-        </div>
-
-        <div class="destaque">
-            <strong>Luanda</strong>
-            <p>Angola</p>
-        </div>
-    </section>
-
-    <section class="cursos" id="cursos">
-        <div class="secao-cabecalho">
-            <span class="secao-etiqueta">FORMAÇÃO</span>
-            <h2>Cursos disponíveis</h2>
-            <p class="subtitulo">
-                Conheça as formações disponíveis no Colégio Jancer.
-            </p>
-        </div>
-
-        <div class="cursos-container">
-            <article class="curso">
-                <div class="curso-numero">01</div>
-                <h3>Informática</h3>
-                <p>
-                    Formação na área de informática,
-                    tecnologia e ferramentas digitais.
-                </p>
-                <a href="paginas/inscricao.html?curso=informatica" class="botao-principal">
-                    Inscrever
-                </a>
-            </article>
-
-            <article class="curso">
-                <div class="curso-numero">02</div>
-                <h3>Ciências Físicas e Biológicas</h3>
-                <p>
-                    Formação nas áreas das ciências
-                    físicas, naturais e biológicas.
-                </p>
-                <a href="paginas/inscricao.html?curso=cfb" class="botao-principal">
-                    Inscrever
-                </a>
-            </article>
-
-            <article class="curso">
-                <div class="curso-numero">03</div>
-                <h3>Ciências Económicas e Jurídicas</h3>
-                <p>
-                    Formação nas áreas económica,
-                    administrativa e jurídica.
-                </p>
-                <a href="paginas/inscricao.html?curso=cej" class="botao-principal">
-                    Inscrever
-                </a>
-            </article>
-        </div>
-
-        <div class="secao-link">
-            <a href="paginas/cursos.html" class="ver-mais">
-                Ver todos os cursos →
+            <a href="index.html" class="logo" aria-label="Página inicial do Colégio Jancer">
+                <img src="logo-jancer.png" alt="Logótipo do Colégio Jancer">
+                <span>Colégio Jancer</span>
             </a>
-        </div>
-    </section>
 
-    <section class="secao-vagas">
-        <div class="vagas-conteudo">
-            <span class="secao-etiqueta">INSCRIÇÕES</span>
-            <h2>Consulte as vagas disponíveis</h2>
-            <p>
-                Verifique a disponibilidade de vagas
-                em cada curso antes de iniciar a sua inscrição.
-            </p>
-            <a href="paginas/vagas.html" class="botao-principal">
-                Consultar vagas
-            </a>
-        </div>
-    </section>
-
-    <section class="eventos" id="eventos">
-        <div class="secao-cabecalho">
-            <span class="secao-etiqueta">ACONTECIMENTOS</span>
-            <h2>Próximos eventos</h2>
-            <p class="subtitulo">
-                Fique informado sobre as atividades do Colégio Jancer.
-            </p>
-        </div>
-
-        <div class="eventos-container">
-            <article class="evento">
-                <div class="evento-data">
-                    <strong>--</strong>
-                    <span>DATA</span>
-                </div>
-                <div>
-                    <h3>Próximo evento</h3>
-                    <p>
-                        Em breve serão divulgados os próximos eventos do colégio.
-                    </p>
-                </div>
-            </article>
-
-            <article class="evento">
-                <div class="evento-data">
-                    <strong>--</strong>
-                    <span>DATA</span>
-                </div>
-                <div>
-                    <h3>Atividade escolar</h3>
-                    <p>
-                        Consulte esta área para acompanhar as atividades escolares.
-                    </p>
-                </div>
-            </article>
-
-            <article class="evento">
-                <div class="evento-data">
-                    <strong>--</strong>
-                    <span>DATA</span>
-                </div>
-                <div>
-                    <h3>Avisos</h3>
-                    <p>
-                        Os avisos importantes serão publicados nesta área.
-                    </p>
-                </div>
-            </article>
-        </div>
-
-        <div class="secao-link">
-            <a href="paginas/eventos.html" class="ver-mais">
-                Ver todos os eventos →
-            </a>
-        </div>
-    </section>
-
-    <section class="honra">
-        <div class="secao-cabecalho">
-            <span class="secao-etiqueta">DESTAQUE</span>
-            <h2>Quadro de Honra</h2>
-            <p class="subtitulo">
-                Reconhecendo o esforço e o desempenho dos nossos alunos.
-            </p>
-        </div>
-
-        <div class="honra-resumo">
-            <div class="honra-resumo-item">
-                <strong>4</strong>
-                <span>Cursos</span>
-            </div>
-
-            <div class="honra-resumo-item">
-                <strong>24</strong>
-                <span>Alunos em destaque</span>
-            </div>
-
-            <div class="honra-resumo-item">
-                <strong>6</strong>
-                <span>Alunos por curso</span>
-            </div>
-        </div>
-
-        <a href="paginas/quadro-honra.html" class="botao-principal">
-            Ver Quadro de Honra
-        </a>
-    </section>
-
-    <section class="sugestoes">
-        <div class="secao-cabecalho">
-            <span class="secao-etiqueta">CONTACTO</span>
-            <h2>Sugestões</h2>
-            <p class="subtitulo">
-                A sua opinião é importante para nós.
-            </p>
-        </div>
-
-        <form id="formSugestao" class="form-sugestao">
-            <input
-                type="text"
-                id="nomeSugestao"
-                name="nome"
-                placeholder="Seu nome"
-                autocomplete="name"
-                required
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="navMenu"
             >
-
-            <input
-                type="email"
-                id="emailSugestao"
-                name="email"
-                placeholder="Seu e-mail"
-                autocomplete="email"
-                required
-            >
-
-            <textarea
-                id="textoSugestao"
-                name="sugestao"
-                rows="5"
-                placeholder="Escreva a sua sugestão..."
-                required
-            ></textarea>
-
-            <button type="submit" class="botao-principal">
-                Enviar sugestão
+                ☰
             </button>
-        </form>
-    </section>
 
-    <section class="redes">
-        <div class="secao-cabecalho">
-            <span class="secao-etiqueta">SIGA-NOS</span>
-            <h2>Redes sociais oficiais</h2>
-            <p>
-                Acompanhe as novidades e informações do Colégio Jancer.
+            <nav class="nav-menu" id="navMenu" aria-label="Navegação principal">
+                <a href="index.html" class="active">Início</a>
+                <a href="paginas/cursos.html">Cursos</a>
+                <a href="paginas/inscricao.html">Inscrição</a>
+                <a href="paginas/vagas.html">Vagas</a>
+                <a href="paginas/eventos.html">Eventos</a>
+                <a href="paginas/sobre.html">Sobre nós</a>
+                <a href="paginas/contactos.html">Contactos</a>
+                <a href="paginas/associacao.html">Associação de Estudantes</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- SECÇÃO PRINCIPAL -->
+        <section class="hero" id="inicio">
+            <div class="container hero-container">
+
+                <div class="hero-content">
+                    <span class="hero-etiqueta">
+                        ANO LETIVO 2026/2027
+                    </span>
+
+                    <h1>
+                        O teu futuro começa
+                        <span>no Colégio Jancer</span>
+                    </h1>
+
+                    <p>
+                        Educação, conhecimento e inovação para preparar
+                        os estudantes para os desafios do futuro.
+                    </p>
+
+                    <div class="hero-botoes">
+                        <a href="paginas/inscricao.html" class="btn btn-primary">
+                            Fazer inscrição
+                        </a>
+
+                        <a href="paginas/cursos.html" class="btn btn-secondary">
+                            Conhecer os cursos
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img
+                        src="logo-jancer.png"
+                        alt="Colégio Jancer"
+                        loading="eager"
+                    >
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ESTATÍSTICAS -->
+        <section class="estatisticas">
+            <div class="container estatisticas-container">
+
+                <div class="estatistica">
+                    <strong>2026/2027</strong>
+                    <span>Ano letivo</span>
+                </div>
+
+                <div class="estatistica">
+                    <strong>3</strong>
+                    <span>Cursos disponíveis</span>
+                </div>
+
+                <div class="estatistica">
+                    <strong>Educação</strong>
+                    <span>Conhecimento e futuro</span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CURSOS -->
+        <section class="cursos secao" id="cursos">
+            <div class="container">
+
+                <div class="secao-cabecalho">
+                    <span class="secao-etiqueta">FORMAÇÃO</span>
+                    <h2>Os nossos cursos</h2>
+                    <p class="subtitulo">
+                        Descobre as áreas de formação disponíveis no
+                        Colégio Jancer.
+                    </p>
+                </div>
+
+                <div class="cursos-container">
+
+                    <article class="curso-card">
+                        <div class="curso-icon" aria-hidden="true">
+                            <span>&lt;/&gt;</span>
+                        </div>
+
+                        <h3>Informática</h3>
+
+                        <p>
+                            Formação na área das tecnologias de informação,
+                            programação e conhecimentos informáticos.
+                        </p>
+
+                        <a href="paginas/cursos.html" class="ver-mais">
+                            Saber mais →
+                        </a>
+                    </article>
+
+
+                    <article class="curso-card">
+                        <div class="curso-icon" aria-hidden="true">
+                            <span>CFB</span>
+                        </div>
+
+                        <h3>Ciências Físicas e Biológicas</h3>
+
+                        <p>
+                            Formação científica com conhecimentos de Física,
+                            Biologia e outras áreas relacionadas.
+                        </p>
+
+                        <a href="paginas/cursos.html" class="ver-mais">
+                            Saber mais →
+                        </a>
+                    </article>
+
+
+                    <article class="curso-card">
+                        <div class="curso-icon" aria-hidden="true">
+                            <span>CEJ</span>
+                        </div>
+
+                        <h3>Ciências Económicas e Jurídicas</h3>
+
+                        <p>
+                            Formação nas áreas da economia, gestão,
+                            direito e conhecimentos sociais.
+                        </p>
+
+                        <a href="paginas/cursos.html" class="ver-mais">
+                            Saber mais →
+                        </a>
+                    </article>
+
+                </div>
+
+                <div class="secao-link">
+                    <a href="paginas/cursos.html" class="ver-mais">
+                        Consultar todos os cursos →
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- VAGAS -->
+        <section class="vagas secao" id="vagas">
+            <div class="container vagas-container">
+
+                <div class="vagas-content">
+                    <span class="secao-etiqueta">OPORTUNIDADES</span>
+
+                    <h2>Vagas disponíveis</h2>
+
+                    <p>
+                        Consulta as informações sobre as vagas disponíveis
+                        para o ano letivo 2026/2027 e verifica as condições
+                        de candidatura.
+                    </p>
+
+                    <a href="paginas/vagas.html" class="btn btn-primary">
+                        Consultar vagas
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- EVENTOS -->
+        <section class="eventos secao" id="eventos">
+            <div class="container">
+
+                <div class="secao-cabecalho">
+                    <span class="secao-etiqueta">ACONTECIMENTOS</span>
+
+                    <h2>Próximos eventos</h2>
+
+                    <p class="subtitulo">
+                        Fica informado sobre as campanhas, atividades
+                        e iniciativas do Colégio Jancer.
+                    </p>
+                </div>
+
+
+                <div class="eventos-container">
+
+                    <!-- OUTUBRO ROSA -->
+                    <article class="evento evento-outubro-resumo">
+                        <div class="evento-conteudo-resumo">
+
+                            <span class="etiqueta-outubro">
+                                OUTUBRO ROSA · 30 DE OUTUBRO
+                            </span>
+
+                            <h3>“Entre Meninas”</h3>
+
+                            <p>
+                                Uma conversa aberta e interativa destinada
+                                às alunas do Colégio Jancer, com foco na
+                                informação, saúde, autocuidado, autoestima,
+                                higiene, adolescência, prevenção e bem-estar,
+                                num ambiente confortável e reservado.
+                            </p>
+
+                            <p>
+                                A atividade pretende promover a partilha
+                                de informações e incentivar hábitos
+                                saudáveis entre as participantes.
+                            </p>
+
+                            <p class="evento-mais-informacoes">
+                                Para mais informações, consulte a página
+                                de eventos.
+                            </p>
+
+                            <a
+                                href="paginas/eventos.html"
+                                class="botao-evento-resumo"
+                            >
+                                Ver detalhes do evento →
+                            </a>
+
+                        </div>
+                    </article>
+
+
+                    <!-- ATIVIDADES ESCOLARES -->
+                    <article class="evento evento-atividade-resumo">
+                        <div class="evento-conteudo-resumo">
+
+                            <span class="etiqueta-atividade">
+                                ATIVIDADES ESCOLARES
+                            </span>
+
+                            <h3>Atividades do Colégio Jancer</h3>
+
+                            <p>
+                                Acompanha as campanhas de higienização,
+                                as competições interturmas e outras
+                                iniciativas destinadas a promover a
+                                participação, a convivência e o espírito
+                                de equipa entre os estudantes.
+                            </p>
+
+                            <p class="evento-mais-informacoes">
+                                Para mais informações, consulta a página
+                                de eventos.
+                            </p>
+
+                            <a
+                                href="paginas/eventos.html"
+                                class="botao-evento-resumo"
+                            >
+                                Ver atividades escolares →
+                            </a>
+
+                        </div>
+                    </article>
+
+
+                    <!-- AVISOS -->
+                    <article class="evento evento-avisos-resumo">
+                        <div class="evento-conteudo-resumo">
+
+                            <span class="etiqueta-avisos">
+                                COMUNICADOS
+                            </span>
+
+                            <h3>Avisos e informações</h3>
+
+                            <p>
+                                Consulta a página de eventos para acompanhar
+                                as informações e os comunicados relacionados
+                                com as atividades do Colégio Jancer.
+                            </p>
+
+                            <p class="evento-mais-informacoes">
+                                Para mais informações, consulta a página
+                                de eventos.
+                            </p>
+
+                            <a
+                                href="paginas/eventos.html"
+                                class="botao-evento-resumo"
+                            >
+                                Consultar informações →
+                            </a>
+
+                        </div>
+                    </article>
+
+                </div>
+
+
+                <div class="eventos-final">
+                    <p>
+                        Para mais informações, consulte a página de eventos.
+                    </p>
+
+                    <a href="paginas/eventos.html" class="btn btn-primary">
+                        Ver todos os eventos →
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- QUADRO DE HONRA -->
+        <section class="quadro-honra secao" id="quadro-honra">
+            <div class="container">
+
+                <div class="secao-cabecalho">
+                    <span class="secao-etiqueta">EXCELÊNCIA ACADÉMICA</span>
+
+                    <h2>Quadro de Honra</h2>
+
+                    <p class="subtitulo">
+                        Reconhecemos o mérito, a dedicação e o desempenho
+                        académico dos nossos estudantes.
+                    </p>
+                </div>
+
+                <div class="quadro-honra-content">
+                    <p>
+                        Conhece os estudantes que se destacam pelo seu
+                        desempenho académico e pela sua dedicação aos estudos.
+                    </p>
+
+                    <a
+                        href="paginas/quadro-honra.html"
+                        class="btn btn-primary"
+                    >
+                        Ver Quadro de Honra
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SUGESTÕES -->
+        <section class="sugestoes secao" id="sugestoes">
+            <div class="container">
+
+                <div class="secao-cabecalho">
+                    <span class="secao-etiqueta">A TUA OPINIÃO CONTA</span>
+
+                    <h2>Envia a tua sugestão</h2>
+
+                    <p class="subtitulo">
+                        Partilha uma ideia ou sugestão para ajudar a
+                        melhorar a comunidade escolar.
+                    </p>
+                </div>
+
+                <form id="formSugestao" class="form-sugestao">
+
+                    <div class="form-grupo">
+                        <label for="nomeSugestao">Nome</label>
+
+                        <input
+                            type="text"
+                            id="nomeSugestao"
+                            name="nome"
+                            placeholder="O teu nome"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="tipoSugestao">Tipo de mensagem</label>
+
+                        <select
+                            id="tipoSugestao"
+                            name="tipo"
+                            required
+                        >
+                            <option value="">Seleciona uma opção</option>
+                            <option value="Sugestão">Sugestão</option>
+                            <option value="Elogio">Elogio</option>
+                            <option value="Reclamação">Reclamação</option>
+                            <option value="Outra mensagem">Outra mensagem</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="mensagemSugestao">Mensagem</label>
+
+                        <textarea
+                            id="mensagemSugestao"
+                            name="mensagem"
+                            rows="5"
+                            placeholder="Escreve aqui a tua mensagem..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Enviar sugestão pelo WhatsApp
+                    </button>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- REDES SOCIAIS OFICIAIS -->
+        <section class="redes secao" id="redes-sociais">
+            <div class="container">
+
+                <div class="secao-cabecalho">
+                    <span class="secao-etiqueta">ACOMPANHA-NOS</span>
+
+                    <h2>Redes sociais oficiais</h2>
+
+                    <p class="subtitulo">
+                        Acompanha as novidades, os eventos e as informações
+                        da Associação de Estudantes do Colégio Jancer.
+                    </p>
+                </div>
+
+                <div class="redes-botoes">
+
+                    <a
+                        href="https://www.instagram.com/asso.ciacaodosestudantes?exln=MTQ1N3MxZzRzMDg5cA=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram da Associação de Estudantes"
+                    >
+                        Instagram
+                    </a>
+
+                    <a
+                        href="https://wa.me/244974501253?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Col%C3%A9gio%20Jancer."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="WhatsApp do Colégio Jancer"
+                    >
+                        WhatsApp
+                    </a>
+
+                    <a
+                        href="https://www.tiktok.com/@cj_ass0?_r=1&_t=ZS-9Abbp0x8SbU"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="TikTok da Associação de Estudantes"
+                    >
+                        TikTok
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTACTOS -->
+        <section class="contactos secao" id="contactos">
+            <div class="container">
+
+                <div class="secao-cabecalho">
+                    <span class="secao-etiqueta">FALE CONNOSCO</span>
+
+                    <h2>Contactos</h2>
+
+                    <p class="subtitulo">
+                        Entra em contacto com o Colégio Jancer para obter
+                        informações sobre os nossos serviços.
+                    </p>
+                </div>
+
+                <div class="contactos-container">
+
+                    <div class="contacto">
+                        <h3>Localização</h3>
+
+                        <p>Luanda, Ingombota, Angola</p>
+                    </div>
+
+                    <div class="contacto">
+                        <h3>Telefone e WhatsApp</h3>
+
+                        <p>
+                            <a href="tel:+244974501253">
+                                +244 974 501 253
+                            </a>
+                        </p>
+
+                        <a
+                            href="https://wa.me/244974501253"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-primary"
+                        >
+                            Contactar pelo WhatsApp
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+    <a
+        href="https://wa.me/244974501253?text=Ol%C3%A1%2C%20gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20o%20Col%C3%A9gio%20Jancer."
+        class="whatsapp-flutuante"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contactar o Colégio Jancer pelo WhatsApp"
+    >
+        <span class="whatsapp-icone" aria-hidden="true">☎</span>
+        <span>Converse connosco</span>
+    </a>
+
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="container footer-container">
+
+            <div class="footer-logo">
+                <img src="logo-jancer.png" alt="Logótipo do Colégio Jancer">
+
+                <div>
+                    <h3>Colégio Jancer</h3>
+
+                    <p>Educação, conhecimento e futuro.</p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Início</a>
+                <a href="paginas/cursos.html">Cursos</a>
+                <a href="paginas/inscricao.html">Inscrição</a>
+                <a href="paginas/eventos.html">Eventos</a>
+                <a href="paginas/associacao.html">Associação de Estudantes</a>
+                <a href="paginas/contactos.html">Contactos</a>
+            </div>
+
+            <p class="footer-copy">
+                &copy; 2026 Colégio Jancer. Todos os direitos reservados.
             </p>
+
         </div>
+    </footer>
 
-        <div class="redes-botoes">
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook oficial do Colégio Jancer"
-            >
-                Facebook
-            </a>
 
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram oficial do Colégio Jancer"
-            >
-                Instagram
-            </a>
+    <!-- FUNCIONALIDADES DA PÁGINA INICIAL -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
 
-            <a
-                href="https://wa.me/244974501253?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Col%C3%A9gio%20Jancer."
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp oficial do Colégio Jancer"
-            >
-                WhatsApp
-            </a>
-        </div>
+            // Menu de navegação para dispositivos móveis
+            const menuToggle = document.getElementById("menuToggle");
+            const navMenu = document.getElementById("navMenu");
 
-        <p class="redes-nota">
-            Os links oficiais das redes sociais poderão ser adicionados posteriormente.
-        </p>
-    </section>
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener("click", function () {
+                    const menuAberto = navMenu.classList.toggle("active");
 
-    <section class="contactos" id="contactos">
-        <div class="secao-cabecalho">
-            <span class="secao-etiqueta">FALE CONNOSCO</span>
-            <h2>Contactos</h2>
-            <p class="subtitulo">
-                Entre em contacto com o Colégio Jancer.
-            </p>
-        </div>
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        String(menuAberto)
+                    );
 
-        <div class="contactos-container">
-            <div class="contacto">
-                <h3>Localização</h3>
-                <p>Luanda, Ingombota</p>
-            </div>
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        menuAberto ? "Fechar menu" : "Abrir menu"
+                    );
 
-            <div class="contacto">
-                <h3>Telefone</h3>
-                <p>+244 974 501 253</p>
-            </div>
+                    menuToggle.textContent = menuAberto ? "✕" : "☰";
+                });
 
-            <div class="contacto">
-                <h3>E-mail</h3>
-                <p>Informação a adicionar</p>
-            </div>
-        </div>
+                navMenu.querySelectorAll("a").forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        navMenu.classList.remove("active");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                        menuToggle.setAttribute("aria-label", "Abrir menu");
+                        menuToggle.textContent = "☰";
+                    });
+                });
+            }
 
-        <div class="secao-link">
-            <a href="paginas/contactos.html" class="ver-mais">
-                Ver página de contactos →
-            </a>
-        </div>
-    </section>
 
-</main>
+            // Envio de sugestões para o WhatsApp do colégio
+            const formSugestao = document.getElementById("formSugestao");
 
-<a
-    href="https://wa.me/244974501253?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20Col%C3%A9gio%20Jancer."
-    class="whatsapp-btn"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Falar com o Colégio Jancer pelo WhatsApp"
->
-    <span class="whatsapp-icon">◉</span>
-    <span>Converse connosco</span>
-</a>
+            if (formSugestao) {
+                formSugestao.addEventListener("submit", function (event) {
+                    event.preventDefault();
 
-<footer>
-    <div class="footer-conteudo">
-        <div class="footer-coluna">
-            <h3>Colégio Jancer</h3>
-            <p>Educação, conhecimento e futuro.</p>
-        </div>
+                    const nome = document
+                        .getElementById("nomeSugestao")
+                        .value.trim();
 
-        <div class="footer-coluna">
-            <h3>Links rápidos</h3>
-            <a href="paginas/cursos.html">Cursos</a>
-            <a href="paginas/inscricao.html">Inscrição</a>
-            <a href="paginas/vagas.html">Vagas</a>
-            <a href="paginas/eventos.html">Eventos</a>
-            <a href="paginas/associacao.html">Associação de Estudantes</a>
-        </div>
+                    const tipo = document
+                        .getElementById("tipoSugestao")
+                        .value;
 
-        <div class="footer-coluna">
-            <h3>Comunidade</h3>
-            <a href="paginas/quadro-honra.html">Quadro de Honra</a>
-        </div>
+                    const mensagem = document
+                        .getElementById("mensagemSugestao")
+                        .value.trim();
 
-        <div class="footer-coluna">
-            <h3>Instituição</h3>
-            <a href="paginas/sobre.html">Sobre nós</a>
-            <a href="paginas/contactos.html">Contactos</a>
-            <a href="index.html#eventos">Eventos</a>
-        </div>
-    </div>
+                    if (!nome || !tipo || !mensagem) {
+                        alert("Preenche todos os campos antes de enviar.");
+                        return;
+                    }
 
-    <div class="footer-final">
-        <p>
-            © 2026 Colégio Jancer.
-            Todos os direitos reservados a Rafael Araújo.
-        </p>
-        <p>Luanda, Angola</p>
-    </div>
-</footer>
+                    const texto =
+                        "Olá, Colégio Jancer!%0A%0A" +
+                        "*Sugestão enviada pelo site*%0A" +
+                        "Nome: " + encodeURIComponent(nome) + "%0A" +
+                        "Tipo: " + encodeURIComponent(tipo) + "%0A" +
+                        "Mensagem: " + encodeURIComponent(mensagem);
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const formSugestao = document.getElementById("formSugestao");
+                    const url =
+                        "https://wa.me/244974501253?text=" + texto;
 
-    if (!formSugestao) return;
+                    window.open(url, "_blank", "noopener,noreferrer");
+                });
+            }
 
-    formSugestao.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const nome = document.getElementById("nomeSugestao").value.trim();
-        const email = document.getElementById("emailSugestao").value.trim();
-        const sugestao = document.getElementById("textoSugestao").value.trim();
-
-        if (!nome || !email || !sugestao) {
-            formSugestao.reportValidity();
-            return;
-        }
-
-        const mensagem =
-`SUGESTÃO — COLÉGIO JANCER
-
-Nome: ${nome}
-
-E-mail: ${email}
-
-Sugestão:
-${sugestao}`;
-
-        const url = "https://wa.me/244974501253?text=" + encodeURIComponent(mensagem);
-
-        window.open(url, "_blank", "noopener,noreferrer");
-    });
-});
-</script>
-
-<script src="inscricao.js"></script>
+        });
+    </script>
 
 </body>
 </html>
