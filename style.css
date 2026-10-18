@@ -3722,3 +3722,53 @@ footer {
     background: #1ebe5d;
     transform: translateY(-2px);
 }
+
+
+/* EVENTO OUTUBRO ROSA — FUNDO COM TRANSPARÊNCIA */
+.evento-card.evento-outubro-rosa {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.76),
+            rgba(255, 235, 243, 0.82)
+        ),
+        url("../Outubro-rosa_Conversa-aberta-entre-meninas-MOCKU.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid #f2b8cc;
+    min-height: 230px;
+}
+
+/* Mantém o conteúdo acima do fundo */
+.evento-card.evento-outubro-rosa > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Melhora a leitura do texto */
+.evento-outubro-rosa .evento-conteudo h2 {
+    color: #7a2048;
+}
+
+.evento-outubro-rosa .evento-conteudo p,
+.evento-outubro-rosa .evento-local {
+    color: #402c35;
+}
+
+/* Data do evento */
+.evento-outubro-rosa .evento-data {
+    background: #d63384;
+    color: #ffffff;
+}
+
+/* Etiqueta do evento */
+.evento-outubro-rosa .evento-tipo {
+    color: #8a174c;
+    background: rgba(255, 255, 255, 0.88);
+}
