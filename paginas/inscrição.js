@@ -1,357 +1,264 @@
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+  "use strict";
 
-    const formulario = document.getElementById("formInscricao");
+  // Número da Secretaria do Colégio Jancer
+  const numeroWhatsApp = "244974501253";
 
-    if (!formulario) {
-        return;
+  const formulario = document.getElementById("formInscricao");
+  const nivelEnsino = document.getElementById("nivelEnsino");
+  const curso = document.getElementById("curso");
+  const mensagemErro = document.getElementById("mensagemErro");
+  const mensagemSucesso = document.getElementById("mensagemSucesso");
+  const botaoEnviar = document.getElementById("botaoEnviarWhatsApp");
+
+  if (!formulario || !nivelEnsino || !curso || !botaoEnviar) {
+    console.error(
+      "Formulário de inscrição: faltam elementos obrigatórios no HTML."
+    );
+    return;
+  }
+
+  // Classes e cursos disponíveis por nível de ensino
+  const opcoesPorNivel = {
+    primario: [
+      ["1classe", "1.ª classe"],
+      ["2classe", "2.ª classe"],
+      ["3classe", "3.ª classe"],
+      ["4classe", "4.ª classe"],
+      ["5classe", "5.ª classe"],
+      ["6classe", "6.ª classe"]
+    ],
+
+    ciclo1: [
+      ["7classe", "7.ª classe"],
+      ["8classe", "8.ª classe"],
+      ["9classe", "9.ª classe"]
+    ],
+
+    ciclo2: [
+      ["informatica", "Informática"],
+      ["cfb", "Ciências Físicas e Biológicas (CFB)"],
+      ["cej", "Ciências Económicas e Jurídicas (CEJ)"]
+    ]
+  };
+
+  function mostrarErro(texto) {
+    mensagemErro.textContent = texto;
+    mensagemErro.style.display = "block";
+    mensagemSucesso.style.display = "none";
+
+    mensagemErro.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+
+  function limparMensagens() {
+    mensagemErro.textContent = "";
+    mensagemErro.style.display = "none";
+
+    mensagemSucesso.textContent = "";
+    mensagemSucesso.style.display = "none";
+  }
+
+  // Atualiza a lista de classes/cursos ao escolher o nível
+  function atualizarOpcoesCurso() {
+    const nivel = nivelEnsino.value;
+
+    curso.innerHTML = "";
+
+    const opcaoInicial = document.createElement("option");
+    opcaoInicial.value = "";
+    opcaoInicial.textContent = nivel
+      ? "Selecione a classe ou o curso"
+      : "Selecione primeiro o nível de ensino";
+
+    curso.appendChild(opcaoInicial);
+
+    const opcoes = opcoesPorNivel[nivel] || [];
+
+    opcoes.forEach(([valor, texto]) => {
+      const opcao = document.createElement("option");
+
+      opcao.value = valor;
+      opcao.textContent = texto;
+
+      curso.appendChild(opcao);
+    });
+
+    curso.disabled = opcoes.length === 0;
+
+    limparMensagens();
+  }
+
+  nivelEnsino.addEventListener("change", atualizarOpcoesCurso);
+
+  // Permite selecionar automaticamente um curso vindo de outra página.
+  // Exemplo: inscricao.html?curso=informatica
+  const parametros = new URLSearchParams(window.location.search);
+  const cursoPreselecionado = parametros.get("curso");
+
+  if (cursoPreselecionado) {
+    nivelEnsino.value = "ciclo2";
+    atualizarOpcoesCurso();
+
+    const existeCurso = [...curso.options].some(
+      opcao => opcao.value === cursoPreselecionado
+    );
+
+    if (existeCurso) {
+      curso.value = cursoPreselecionado;
+    }
+  }
+
+  formulario.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    limparMensagens();
+
+    // Verifica os campos obrigatórios do formulário
+    if (!formulario.checkValidity()) {
+      formulario.reportValidity();
+      return;
     }
 
-    // Número oficial do WhatsApp utilizado no formulário.
-    const numeroWhatsApp = "244974501253";
+    if (!nivelEnsino.value || !curso.value) {
+      mostrarErro(
+        "Selecione o nível de ensino e a classe ou curso pretendido."
+      );
+      return;
+    }
 
-    // Campos do formulário.
-    const nivelEnsino = document.getElementById("nivelEnsino");
-    const curso = document.getElementById("curso");
-    const telefone = document.getElementById("telefone");
-    const email = document.getElementById("email");
+    // Valida o número de telefone angolano
+    const telefoneDigitado = document
+      .getElementById("telefone")
+      .value.trim();
 
-    const erroTelefone = document.getElementById("erroTelefone");
-    const erroEmail = document.getElementById("erroEmail");
-    const mensagemSucesso = document.getElementById("mensagemSucesso");
+    const telefone = telefoneDigitado.replace(/[^\d]/g, "");
 
-    // Classes e cursos disponíveis por nível de ensino.
-    const opcoesEnsino = {
+    const telefoneLocal = telefone.startsWith("244")
+      ? telefone.slice(3)
+      : telefone;
 
-        "Ensino Primário": [
-            { value: "1.ª classe", text: "1.ª classe" },
-            { value: "2.ª classe", text: "2.ª classe" },
-            { value: "3.ª classe", text: "3.ª classe" },
-            { value: "4.ª classe", text: "4.ª classe" },
-            { value: "5.ª classe", text: "5.ª classe" },
-            { value: "6.ª classe", text: "6.ª classe" }
-        ],
+    if (!/^9\d{8}$/.test(telefoneLocal)) {
+      mostrarErro(
+        "Introduza um número angolano válido com 9 dígitos, por exemplo 974501253."
+      );
 
-        "I Ciclo do Ensino Secundário": [
-            { value: "7.ª classe", text: "7.ª classe" },
-            { value: "8.ª classe", text: "8.ª classe" },
-            { value: "9.ª classe", text: "9.ª classe" }
-        ],
+      document.getElementById("telefone").focus();
+      return;
+    }
 
-        "II Ciclo do Ensino Secundário - Ensino Médio": [
-            { value: "informatica", text: "Informática" },
-            {
-                value: "cfb",
-                text: "Ciências Físicas e Biológicas (CFB)"
-            },
-            {
-                value: "cej",
-                text: "Ciências Económicas e Jurídicas (CEJ)"
-            }
-        ]
+    // Valida o e-mail, caso tenha sido preenchido
+    const email = document.getElementById("email").value.trim();
 
+    if (
+      email &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)
+    ) {
+      mostrarErro("Verifique o endereço de e-mail introduzido.");
+
+      document.getElementById("email").focus();
+      return;
+    }
+
+    // Confirmação obrigatória dos dados
+    if (!document.getElementById("confirmacao").checked) {
+      mostrarErro(
+        "Confirme que as informações são verdadeiras antes de continuar."
+      );
+
+      document.getElementById("confirmacao").focus();
+      return;
+    }
+
+    const nomeNivel =
+      nivelEnsino.options[nivelEnsino.selectedIndex].text;
+
+    const nomeCurso =
+      curso.options[curso.selectedIndex].text;
+
+    // Recolhe todas as informações preenchidas
+    const dados = {
+      aluno: document.getElementById("nomeAluno").value.trim(),
+
+      nascimento: document.getElementById("dataNascimento").value,
+
+      encarregado: document
+        .getElementById("nomeEncarregado")
+        .value.trim(),
+
+      telefone: telefoneLocal,
+
+      email: email || "Não indicado",
+
+      endereco: document.getElementById("endereco").value.trim(),
+
+      saude:
+        document.getElementById("saude").value.trim() ||
+        "Não indicado",
+
+      observacoes:
+        document.getElementById("observacoes").value.trim() ||
+        "Nenhuma"
     };
 
-    // Atualizar as opções quando o nível de ensino mudar.
-    function atualizarOpcoesCurso() {
+    let dataFormatada = "Não indicada";
 
-        const nivel = nivelEnsino.value;
-        const opcoes = opcoesEnsino[nivel] || [];
+    if (dados.nascimento) {
+      const data = new Date(`${dados.nascimento}T00:00:00`);
 
-        curso.replaceChildren();
-
-        const opcaoInicial = document.createElement("option");
-        opcaoInicial.value = "";
-
-        opcaoInicial.textContent = opcoes.length
-            ? "Selecione a classe ou o curso"
-            : "Selecione primeiro o nível de ensino";
-
-        curso.appendChild(opcaoInicial);
-
-        opcoes.forEach(function (item) {
-
-            const opcao = document.createElement("option");
-
-            opcao.value = item.value;
-            opcao.textContent = item.text;
-
-            curso.appendChild(opcao);
-
-        });
-
-        curso.disabled = opcoes.length === 0;
-        curso.value = "";
-
-        curso.classList.remove("campo-valido", "campo-invalido");
+      dataFormatada = data.toLocaleDateString("pt-PT");
     }
 
-    nivelEnsino.addEventListener("change", atualizarOpcoesCurso);
+    // Cria a mensagem completa para a Secretaria
+    const textoWhatsApp = [
+      "INSCRIÇÃO — COLÉGIO JANCER",
+      "",
+      "Confirmo que os dados abaixo foram revistos no formulário de inscrição.",
+      "",
+      `Nome completo do aluno: ${dados.aluno}`,
+      `Data de nascimento: ${dataFormatada}`,
+      `Nível de ensino: ${nomeNivel}`,
+      `Classe/curso pretendido: ${nomeCurso}`,
+      "",
+      `Encarregado de educação: ${dados.encarregado}`,
+      `Telefone do encarregado: ${dados.telefone}`,
+      `E-mail: ${dados.email}`,
+      `Morada: ${dados.endereco}`,
+      `Informações de saúde: ${dados.saude}`,
+      `Observações: ${dados.observacoes}`,
+      "",
+      "Declaração: confirmo que as informações fornecidas são verdadeiras."
+    ].join("\n");
 
-    // Prefixos telefónicos aceites para os números angolanos.
-    const prefixosValidos = [
-        "911", "912", "913", "914", "915",
-        "916", "917", "918", "919",
+    // Abre o WhatsApp da Secretaria com a mensagem já preenchida
+    const urlWhatsApp =
+      `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoWhatsApp)}`;
 
-        "921", "922", "923", "924", "925",
-        "926", "927", "928", "929",
+    const janela = window.open(
+      urlWhatsApp,
+      "_blank",
+      "noopener,noreferrer"
+    );
 
-        "931", "932", "933", "934", "935",
-        "936", "937", "938", "939",
-
-        "951", "952", "953", "954", "955",
-        "956", "957", "958", "959"
-    ];
-
-    // Mostrar erros de validação.
-    function mostrarErro(campo, mensagem, elementoErro) {
-
-        campo.classList.remove("campo-valido");
-        campo.classList.add("campo-invalido");
-
-        if (elementoErro) {
-            elementoErro.textContent = mensagem;
-            elementoErro.style.display = "block";
-        }
-
+    // Se o navegador bloquear a nova janela, abre na mesma página
+    if (!janela) {
+      window.location.href = urlWhatsApp;
+      return;
     }
 
-    // Remover erros de validação.
-    function removerErro(campo, elementoErro) {
+    mensagemSucesso.textContent =
+      "O WhatsApp foi aberto com os dados da inscrição preenchidos. Reveja a mensagem e carregue em Enviar no WhatsApp.";
 
-        campo.classList.remove("campo-invalido");
-        campo.classList.add("campo-valido");
+    mensagemSucesso.style.display = "block";
+  });
 
-        if (elementoErro) {
-            elementoErro.textContent = "";
-            elementoErro.style.display = "none";
-        }
-
+  // Oculta mensagens de erro quando a pessoa corrige os campos
+  formulario.addEventListener("input", () => {
+    if (mensagemErro.style.display === "block") {
+      mensagemErro.style.display = "none";
+      mensagemErro.textContent = "";
     }
-
-    // Validar telefone.
-    function validarTelefone() {
-
-        const numero = telefone.value.trim();
-
-        if (numero === "") {
-
-            mostrarErro(
-                telefone,
-                "Digite o número de telefone.",
-                erroTelefone
-            );
-
-            return false;
-        }
-
-        if (!/^[0-9]{9}$/.test(numero)) {
-
-            mostrarErro(
-                telefone,
-                "O telefone deve conter exatamente 9 dígitos.",
-                erroTelefone
-            );
-
-            return false;
-        }
-
-        const prefixo = numero.substring(0, 3);
-
-        if (!numero.startsWith("9") ||
-            !prefixosValidos.includes(prefixo)) {
-
-            mostrarErro(
-                telefone,
-                "Digite um número válido de Angola.",
-                erroTelefone
-            );
-
-            return false;
-        }
-
-        removerErro(telefone, erroTelefone);
-
-        return true;
-    }
-
-    // Permitir apenas números no campo de telefone.
-    telefone.addEventListener("input", function () {
-
-        this.value = this.value
-            .replace(/[^0-9]/g, "")
-            .slice(0, 9);
-
-        validarTelefone();
-
-    });
-
-    telefone.addEventListener("paste", function (evento) {
-
-        evento.preventDefault();
-
-        const texto = evento.clipboardData.getData("text");
-
-        telefone.value = texto
-            .replace(/[^0-9]/g, "")
-            .slice(0, 9);
-
-        validarTelefone();
-
-    });
-
-    telefone.addEventListener("drop", function (evento) {
-        evento.preventDefault();
-    });
-
-    telefone.addEventListener("blur", validarTelefone);
-
-    // Validar e-mail.
-    function validarEmail() {
-
-        const valor = email.value.trim();
-        const formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-        if (valor === "") {
-
-            mostrarErro(
-                email,
-                "Digite o seu e-mail.",
-                erroEmail
-            );
-
-            return false;
-        }
-
-        if (!formatoEmail.test(valor)) {
-
-            mostrarErro(
-                email,
-                "Digite um e-mail válido. Ex.: exemplo@email.com",
-                erroEmail
-            );
-
-            return false;
-        }
-
-        removerErro(email, erroEmail);
-
-        return true;
-    }
-
-    email.addEventListener("input", validarEmail);
-    email.addEventListener("blur", validarEmail);
-
-    // Obter o valor de um campo.
-    function valor(id) {
-
-        const elemento = document.getElementById(id);
-
-        return elemento ? elemento.value.trim() : "";
-
-    }
-
-    // Transformar os códigos dos cursos em nomes legíveis.
-    function nomeDoCurso(codigo) {
-
-        const nomes = {
-            informatica: "Informática",
-            cfb: "Ciências Físicas e Biológicas (CFB)",
-            cej: "Ciências Económicas e Jurídicas (CEJ)"
-        };
-
-        return nomes[codigo] || codigo;
-
-    }
-
-    // Preparar e abrir a inscrição no WhatsApp.
-    formulario.addEventListener("submit", function (evento) {
-
-        evento.preventDefault();
-
-        const telefoneValido = validarTelefone();
-        const emailValido = validarEmail();
-
-        if (!telefoneValido) {
-            telefone.focus();
-            return;
-        }
-
-        if (!emailValido) {
-            email.focus();
-            return;
-        }
-
-        if (!formulario.checkValidity()) {
-            formulario.reportValidity();
-            return;
-        }
-
-        const nomeAluno = valor("nomeAluno");
-        const dataNascimento = valor("dataNascimento");
-        const nivel = valor("nivelEnsino");
-        const cursoEscolhido = valor("curso");
-
-        const nomeResponsavel = valor("nomeResponsavel");
-        const numeroTelefone = telefone.value.trim();
-        const enderecoEmail = email.value.trim();
-        const morada = valor("morada");
-
-        const saudeAluno =
-            valor("saudeAluno") || "Não informado";
-
-        const mensagem =
-            valor("mensagem") || "Nenhuma informação adicional.";
-
-        const nomeCurso = nomeDoCurso(cursoEscolhido);
-
-        // A mensagem inclui os dados do aluno e do encarregado.
-        const textoWhatsApp = [
-            "*NOVA INSCRIÇÃO — COLÉGIO JANCER*",
-            "",
-            "━━━━━━━━━━━━━━━━━━━━",
-            "*DADOS DO ALUNO*",
-            `Nome completo: ${nomeAluno}`,
-            `Data de nascimento: ${dataNascimento}`,
-            `Nível de ensino: ${nivel}`,
-            `Classe/curso pretendido: ${nomeCurso}`,
-            "",
-            "━━━━━━━━━━━━━━━━━━━━",
-            "*DADOS DO ENCARREGADO*",
-            `Nome: ${nomeResponsavel}`,
-            `Telefone: ${numeroTelefone}`,
-            `E-mail: ${enderecoEmail}`,
-            `Morada: ${morada}`,
-            "",
-            "━━━━━━━━━━━━━━━━━━━━",
-            "*INFORMAÇÕES DE SAÚDE*",
-            saudeAluno,
-            "",
-            "━━━━━━━━━━━━━━━━━━━━",
-            "*INFORMAÇÕES ADICIONAIS*",
-            mensagem,
-            "",
-            "━━━━━━━━━━━━━━━━━━━━",
-            "Inscrição enviada através do site do Colégio Jancer."
-        ].join("\n");
-
-        const linkWhatsApp =
-            `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoWhatsApp)}`;
-
-        mensagemSucesso.style.display = "block";
-
-        // Abre o WhatsApp com a mensagem preenchida.
-        // O utilizador deve confirmar e tocar em Enviar no WhatsApp.
-        const janelaWhatsApp = window.open(
-            linkWhatsApp,
-            "_blank"
-        );
-
-        // Alternativa caso o navegador bloqueie a nova janela.
-        if (!janelaWhatsApp) {
-            window.location.href = linkWhatsApp;
-        }
-
-    });
-
+  });
 });

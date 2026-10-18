@@ -2,303 +2,368 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Faça a inscrição online no Colégio Jancer, em Luanda, Angola.">
-    <title>Inscrição | Colégio Jancer</title>
-    <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscrição | Colégio Jancer</title>
+  <link rel="stylesheet" href="../style.css">
 
-    <style>
-        .erro-campo {
-            display: none;
-            color: #d93025;
-            font-size: 14px;
-            margin: 6px 0 10px;
-        }
+  <style>
+    .inscricao-wrap {
+      max-width: 980px;
+      margin: 36px auto;
+      padding: 24px;
+    }
 
-        .campo-invalido {
-            border: 2px solid #d93025 !important;
-        }
+    .inscricao-wrap h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
 
-        .campo-valido {
-            border: 2px solid #198754 !important;
-        }
+    .inscricao-intro {
+      text-align: center;
+      margin: 0 auto 28px;
+      max-width: 700px;
+    }
 
-        .aviso-saude {
-            background: #f5f8ff;
-            border-left: 4px solid #075BBD;
-            padding: 14px;
-            margin-bottom: 18px;
-            border-radius: 6px;
-            line-height: 1.5;
-        }
+    .form-inscricao {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
 
-        .aviso-saude strong {
-            display: block;
-            margin-bottom: 5px;
-        }
+    .campo {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      min-width: 0;
+    }
 
-        .mensagem-sucesso {
-            display: none;
-            padding: 15px;
-            margin-top: 18px;
-            border-radius: 8px;
-            background: #e8f7ee;
-            color: #176b3a;
-            border: 1px solid #b7e4c7;
-        }
+    .campo.largo,
+    .confirmacao,
+    .acoes-formulario,
+    .mensagem-sucesso,
+    .mensagem-erro {
+      grid-column: 1 / -1;
+    }
 
-        .navegacao-jancer {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 12px;
-        }
+    .campo label {
+      font-weight: 600;
+    }
 
-        .navegacao-jancer a {
-            text-decoration: none;
-        }
+    .campo input,
+    .campo select,
+    .campo textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font: inherit;
+      background: #fff;
+      color: #172033;
+    }
 
-        select:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-    </style>
+    .campo select:disabled {
+      background: #f1f5f9;
+      color: #64748b;
+      cursor: not-allowed;
+    }
+
+    .confirmacao {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 8px;
+      background: #f1f5f9;
+    }
+
+    .confirmacao input {
+      margin-top: 4px;
+    }
+
+    .acoes-formulario {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .botao-enviar-whatsapp {
+      display: block;
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      background: #075BBD;
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 15px 20px;
+      cursor: pointer;
+    }
+
+    .botao-enviar-whatsapp:hover {
+      background: #043f83;
+    }
+
+    .botao-enviar-whatsapp:focus-visible {
+      outline: 3px solid #12D9E8;
+      outline-offset: 3px;
+    }
+
+    .mensagem-sucesso,
+    .mensagem-erro {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .mensagem-sucesso {
+      background: #ecfdf5;
+      color: #065f46;
+    }
+
+    .mensagem-erro {
+      background: #fef2f2;
+      color: #991b1b;
+    }
+
+    .nota-whatsapp {
+      font-size: .92rem;
+      text-align: center;
+      color: #475569;
+    }
+
+    .nav-inscricao {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    @media (max-width: 680px) {
+      .form-inscricao {
+        grid-template-columns: 1fr;
+      }
+
+      .inscricao-wrap {
+        padding: 16px;
+      }
+
+      .campo.largo,
+      .confirmacao,
+      .acoes-formulario,
+      .mensagem-sucesso,
+      .mensagem-erro {
+        grid-column: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">
-        <a href="../index.html" aria-label="Página inicial do Colégio Jancer">
-            <img
-                class="logo-jancer"
-                src="../logo-jancer.png"
-                alt="Logo do Colégio Jancer"
-            >
-        </a>
+<header class="cabecalho">
+  <a href="../index.html" aria-label="Página inicial do Colégio Jancer">
+    <img
+      src="../logo-jancer.png"
+      alt="Colégio Jancer"
+      style="max-width:150px;height:auto"
+    >
+  </a>
 
-        <div class="logo-texto">
-            <span>COLÉGIO</span>
-            <strong>JANCER</strong>
-        </div>
-    </div>
-
-    <nav class="navegacao-jancer" aria-label="Navegação principal">
-        <a href="../index.html">Início</a>
-        <a href="sobre.html">Sobre nós</a>
-        <a href="cursos.html">Cursos</a>
-        <a href="vagas.html">Vagas</a>
-        <a href="eventos.html">Eventos</a>
-        <a href="associacao.html">Associação dos Estudantes</a>
-        <a href="contactos.html">Contactos</a>
-    </nav>
-
-    <a href="inscricao.html" class="botao-inscricao" aria-current="page">
-        Inscrever-se
-    </a>
+  <nav class="nav-inscricao" aria-label="Navegação principal">
+    <a href="../index.html">Início</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="cursos.html">Cursos</a>
+    <a href="vagas.html">Vagas</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="associacao.html">Associação dos Estudantes</a>
+    <a href="contactos.html">Contactos</a>
+  </nav>
 </header>
 
-<main>
+<main class="inscricao-wrap">
 
-    <section class="inscricao">
-        <div>
-            <h1>Inscrição Online</h1>
-            <p>
-                Preencha o formulário abaixo para iniciar
-                o processo de inscrição no Colégio Jancer.
-            </p>
-        </div>
-    </section>
+  <h1>Formulário de inscrição</h1>
 
-    <section class="formulario">
+  <p class="inscricao-intro">
+    Preencha os dados do aluno e do encarregado.
+    No final, confirme as informações e abra o WhatsApp
+    da Secretaria para enviar a inscrição.
+  </p>
 
-        <form id="formInscricao" novalidate>
+  <form id="formInscricao" class="form-inscricao">
 
-            <h2>Dados do aluno</h2>
+    <div class="campo largo">
+      <label for="nomeAluno">Nome completo do aluno *</label>
+      <input
+        id="nomeAluno"
+        name="nomeAluno"
+        type="text"
+        autocomplete="name"
+        required
+      >
+    </div>
 
-            <label for="nomeAluno">Nome completo do aluno</label>
-            <input
-                type="text"
-                id="nomeAluno"
-                name="nomeAluno"
-                placeholder="Digite o nome completo do aluno"
-                autocomplete="name"
-                required
-            >
+    <div class="campo">
+      <label for="dataNascimento">Data de nascimento *</label>
+      <input
+        id="dataNascimento"
+        name="dataNascimento"
+        type="date"
+        required
+      >
+    </div>
 
-            <label for="dataNascimento">Data de nascimento</label>
-            <input
-                type="date"
-                id="dataNascimento"
-                name="dataNascimento"
-                required
-            >
+    <div class="campo">
+      <label for="nivelEnsino">Nível de ensino pretendido *</label>
 
-            <label for="nivelEnsino">Nível de ensino</label>
-            <select id="nivelEnsino" name="nivelEnsino" required>
-                <option value="">Selecione o nível de ensino</option>
-                <option value="Ensino Primário">Ensino Primário</option>
-                <option value="I Ciclo do Ensino Secundário">
-                    I Ciclo do Ensino Secundário
-                </option>
-                <option value="II Ciclo do Ensino Secundário - Ensino Médio">
-                    II Ciclo do Ensino Secundário (Ensino Médio)
-                </option>
-            </select>
+      <select id="nivelEnsino" name="nivelEnsino" required>
+        <option value="">Selecione o nível de ensino</option>
+        <option value="primario">Ensino Primário</option>
+        <option value="ciclo1">I Ciclo do Ensino Secundário</option>
+        <option value="ciclo2">
+          II Ciclo do Ensino Secundário (Ensino Médio)
+        </option>
+      </select>
+    </div>
 
-            <label for="curso">Classe ou curso pretendido</label>
-            <select id="curso" name="curso" required disabled>
-                <option value="">Selecione primeiro o nível de ensino</option>
-            </select>
+    <div class="campo largo">
+      <label for="curso">Classe / curso pretendido *</label>
 
-            <h2>Dados do encarregado de educação</h2>
+      <select id="curso" name="curso" required disabled>
+        <option value="">Selecione primeiro o nível de ensino</option>
+      </select>
+    </div>
 
-            <label for="nomeResponsavel">
-                Nome completo do encarregado
-            </label>
-            <input
-                type="text"
-                id="nomeResponsavel"
-                name="nomeResponsavel"
-                placeholder="Digite o nome completo"
-                autocomplete="name"
-                required
-            >
+    <div class="campo largo">
+      <label for="nomeEncarregado">
+        Nome completo do encarregado de educação *
+      </label>
 
-            <label for="telefone">Telefone do encarregado</label>
-            <input
-                type="tel"
-                id="telefone"
-                name="telefone"
-                placeholder="Ex.: 923000000"
-                autocomplete="tel"
-                inputmode="numeric"
-                maxlength="9"
-                pattern="[0-9]{9}"
-                required
-            >
-            <p id="erroTelefone" class="erro-campo" aria-live="polite"></p>
+      <input
+        id="nomeEncarregado"
+        name="nomeEncarregado"
+        type="text"
+        required
+      >
+    </div>
 
-            <label for="email">E-mail</label>
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="exemplo@email.com"
-                autocomplete="email"
-                required
-            >
-            <p id="erroEmail" class="erro-campo" aria-live="polite"></p>
+    <div class="campo">
+      <label for="telefone">Telefone do encarregado *</label>
 
-            <label for="morada">Morada</label>
-            <input
-                type="text"
-                id="morada"
-                name="morada"
-                placeholder="Digite a morada"
-                autocomplete="street-address"
-                required
-            >
+      <input
+        id="telefone"
+        name="telefone"
+        type="tel"
+        inputmode="tel"
+        placeholder="Ex.: 974501253"
+        autocomplete="tel"
+        required
+      >
+    </div>
 
-            <h2>Informações de saúde</h2>
+    <div class="campo">
+      <label for="email">E-mail (se tiver)</label>
 
-            <div class="aviso-saude">
-                <strong>Informação importante</strong>
-                Informe apenas as condições de saúde, alergias ou
-                medicação que o colégio precise de conhecer para
-                apoiar a segurança do aluno.
-            </div>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        autocomplete="email"
+      >
+    </div>
 
-            <label for="saudeAluno">
-                Doenças, problemas de saúde ou alergias (opcional)
-            </label>
-            <textarea
-                id="saudeAluno"
-                name="saudeAluno"
-                rows="4"
-                placeholder="Se não houver informação relevante, pode deixar em branco."
-            ></textarea>
+    <div class="campo largo">
+      <label for="endereco">Morada / endereço *</label>
 
-            <h2>Informações adicionais</h2>
+      <input
+        id="endereco"
+        name="endereco"
+        type="text"
+        autocomplete="street-address"
+        required
+      >
+    </div>
 
-            <label for="mensagem">Mensagem (opcional)</label>
-            <textarea
-                id="mensagem"
-                name="mensagem"
-                rows="4"
-                placeholder="Escreva alguma informação adicional..."
-            ></textarea>
+    <div class="campo largo">
+      <label for="saude">
+        Informações de saúde importantes (opcional)
+      </label>
 
-            <label class="checkbox-inscricao">
-                <input
-                    type="checkbox"
-                    id="confirmacao"
-                    name="confirmacao"
-                    required
-                >
-                <span>
-                    Confirmo que as informações preenchidas são verdadeiras
-                    e autorizo o envio destes dados para o WhatsApp do
-                    Colégio Jancer para tratar da inscrição.
-                </span>
-            </label>
+      <textarea
+        id="saude"
+        name="saude"
+        rows="3"
+        placeholder="Indique apenas informações relevantes para o acompanhamento escolar."
+      ></textarea>
+    </div>
 
-            <button type="submit" class="botao-principal">
-                Enviar inscrição pelo WhatsApp
-            </button>
+    <div class="campo largo">
+      <label for="observacoes">Observações adicionais (opcional)</label>
 
-            <div
-                id="mensagemSucesso"
-                class="mensagem-sucesso"
-                role="status"
-                aria-live="polite"
-            >
-                Os dados foram validados. O WhatsApp será aberto com a
-                mensagem preparada. Reveja-a e toque em Enviar no WhatsApp
-                para concluir.
-            </div>
+      <textarea
+        id="observacoes"
+        name="observacoes"
+        rows="3"
+      ></textarea>
+    </div>
 
-            <p class="aviso-formulario">
-                O envio deste formulário inicia o processo de inscrição.
-                A confirmação definitiva será feita pelo Colégio Jancer.
-            </p>
+    <label class="confirmacao" for="confirmacao">
+      <input
+        id="confirmacao"
+        name="confirmacao"
+        type="checkbox"
+        required
+      >
 
-        </form>
-    </section>
+      <span>
+        Confirmo que as informações preenchidas são verdadeiras
+        e autorizo o seu envio à Secretaria do Colégio Jancer
+        pelo WhatsApp. *
+      </span>
+    </label>
 
+    <div
+      id="mensagemErro"
+      class="mensagem-erro"
+      role="alert"
+    ></div>
+
+    <div
+      id="mensagemSucesso"
+      class="mensagem-sucesso"
+      role="status"
+    ></div>
+
+    <div class="acoes-formulario">
+      <button
+        type="submit"
+        id="botaoEnviarWhatsApp"
+        class="botao-enviar-whatsapp"
+      >
+        Enviar informações pelo WhatsApp
+      </button>
+
+      <p class="nota-whatsapp">
+        O WhatsApp abrirá com a mensagem já preenchida.
+        Para concluir, carregue em “Enviar” dentro do WhatsApp.
+      </p>
+    </div>
+
+  </form>
 </main>
 
 <footer>
-    <div class="footer-conteudo">
+  <p style="text-align:center">
+    © 2026 Colégio Jancer — Luanda, Angola
+  </p>
 
-        <div>
-            <h3>Colégio Jancer</h3>
-            <p>Educação, conhecimento e futuro.</p>
-        </div>
-
-        <div>
-            <h3>Links rápidos</h3>
-            <a href="../index.html">Início</a>
-            <a href="cursos.html">Cursos</a>
-            <a href="vagas.html">Vagas</a>
-            <a href="inscricao.html">Inscrição</a>
-        </div>
-
-        <div>
-            <h3>Instituição</h3>
-            <a href="sobre.html">Sobre nós</a>
-            <a href="eventos.html">Eventos</a>
-            <a href="associacao.html">Associação dos Estudantes</a>
-            <a href="contactos.html">Contactos</a>
-        </div>
-
-    </div>
-
-    <div class="footer-final">
-        <p>© 2026 Colégio Jancer. Todos os direitos reservados.</p>
-        <p>Luanda, Angola</p>
-    </div>
+  <p style="text-align:center">
+    <a href="associacao.html">Associação dos Estudantes</a>
+    ·
+    <a href="contactos.html">Contactos</a>
+  </p>
 </footer>
 
 <script src="inscricao.js"></script>
